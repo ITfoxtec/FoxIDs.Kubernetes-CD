@@ -2,9 +2,22 @@
 
 http://localhost:3000
 
+Admin user
 ```
-kubectl port-forward svc/grafana -n monitoring 3000:80
+Username: admin
+Default password: prom-operator
 ```
+
+```
+kubectl port-forward svc/prometheus-stack-grafana -n monitoring 3000:80
+```
+
+Grafana supports prebuilt dashboards for Istio. The recommended Dashboard IDs are listed below:
+
+- Istio Mesh Dashboard: 7645
+- Istio Workload Dashboard: 7639
+- Istio Performance: 11829
+
 
 ## Access Prometheus Dashboard
 
