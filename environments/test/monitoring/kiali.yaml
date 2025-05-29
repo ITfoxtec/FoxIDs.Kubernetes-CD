@@ -17,6 +17,8 @@ spec:
         value: "anonymous"
       - name: "external_services.prometheus.url"
         value: "http://prometheus-server.monitoring.svc.cluster.local"
+      - name: "external_services.grafana.internal_url"
+        value: "http://grafana.monitoring.svc.cluster.local"
   destination:
     name: in-cluster
     namespace: istio-system
