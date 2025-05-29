@@ -4,6 +4,7 @@ metadata:
     name: myapp-application
     namespace: argocd
 spec:
+    project: default
     source:
         repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
         path: environments/test/myapp
