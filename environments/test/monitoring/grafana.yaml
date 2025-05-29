@@ -11,11 +11,11 @@ spec:
     chart: grafana
     targetRevision: 27.16.0
     helm:
-        parameters:
-          - name: "adminPassword"
-            value: "admin"
-          - name: "service.type"
-            value: "ClusterIP"
+      parameters:
+      - name: "adminPassword"
+        value: "admin"
+      - name: "service.type"
+        value: "ClusterIP"
   destination:
     name: in-cluster
     namespace: monitoring

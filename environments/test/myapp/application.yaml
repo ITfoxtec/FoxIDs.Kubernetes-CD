@@ -1,27 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-    name: myapp-application
-    namespace: argocd
+  name: myapp-application
+  namespace: argocd
 spec:
-    project: default
-    source:
-        repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
-        path: environments/test/myapp
-        targetRevision: HEAD
-        directory:
-            exclude: application.yaml
-    destination:
-        name: in-cluster
-        namespace: myapp
-    syncPolicy:
-        managedNamespaceMetadata:
-            labels: 
-                istio.io/dataplane-mode: ambient
-            #annotations: 
-        syncOptions:
-            - CreateNamespace=true
-        automated:
-            selfHeal: true
-            prune: true
+  project: default
+  source:
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    path: environments/test/myapp
+    targetRevision: HEAD
+    directory:
+      exclude: application.yaml
+  destination:
+    name: in-cluster
+    namespace: myapp
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels: 
+        istio.io/dataplane-mode: ambient
+      #annotations: 
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
       
