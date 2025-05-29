@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: 'https://grafana.github.io/helm-charts'
     chart: grafana
-    targetRevision: 27.16.0
+    targetRevision: 9.2.1
     helm:
       parameters:
       - name: "adminPassword"
