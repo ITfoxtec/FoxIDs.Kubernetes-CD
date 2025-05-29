@@ -5,12 +5,12 @@ http://localhost:3000
 Admin user
 ```
 Username: admin
-Default password: prom-operator
+First login password: admin
+```
+kubectl port-forward svc/grafana -n monitoring 3000:80
 ```
 
-```
-kubectl port-forward svc/prometheus-server -n monitoring 9090:80
-```
+Set Prometheus connection URL: `http://prometheus-server.monitoring.svc.cluster.local`
 
 Grafana supports prebuilt dashboards for Istio. The recommended Dashboard IDs are listed below:
 
