@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-    name: foxids-application
+    name: myapp-application
     namespace: argocd
 spec:
     source:
-        repoURL: https://github.com/ITfoxtec/FoxIDs.K8s
-        path: environments/prod/foxids
+        repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+        path: environments/test/myapp
         targetRevision: main
     destination:
         server: https://kubernetes.default.svc
-        namespace: foxids
+        namespace: myapp
     syncPolicy:
         syncOptions:
         - CreateNamespace = true
