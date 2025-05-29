@@ -9,10 +9,16 @@ spec:
         repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
         path: environments/test/myapp
         targetRevision: HEAD
+        directory:
+            exclude: application.yaml
     destination:
-        server: https://kubernetes.default.svc
+        name: in-cluster
         namespace: myapp
     syncPolicy:
+        managedNamespaceMetadata:
+            labels: 
+                istio.io/dataplane-mode: ambient
+            #annotations: 
         syncOptions:
             - CreateNamespace=true
         automated:

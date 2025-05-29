@@ -16,11 +16,11 @@ resource "helm_release" "argocd" {
 }
 
 data "http" "argocd-application" {
-  url = "https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD/blob/main/environments/${var.environment}/application.yaml"
+  url = "https://raw.githubusercontent.com/ITfoxtec/FoxIDs.Kubernetes-CD/refs/heads/main/environments/${var.environment}/meta-application.yaml"
 }
 
 resource "kubectl_manifest" "argocd-application" {
-  yaml_body = data.http.argocd-application.body
+  yaml_body = data.http.argocd-application.response_body
    
   depends_on = [ helm_release.argocd ]
 }
