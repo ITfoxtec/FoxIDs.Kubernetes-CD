@@ -1,4 +1,4 @@
-# https://artifacthub.io/packages/helm/prometheus-community/prometheus
+# https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
 # https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 'https://prometheus-community.github.io/helm-charts'
     chart: kube-prometheus-stack
-    targetRevision: 72.6.2
+    targetRevision: 72.6.3
   destination:
     name: in-cluster
     namespace: monitoring
