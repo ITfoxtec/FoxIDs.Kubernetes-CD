@@ -15,8 +15,12 @@ resource "helm_release" "argocd" {
     cleanup_on_fail     = true
 }
 
-resource "kubectl_manifest" "letsencrypt-issuer" {
-  yaml_body = file("https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD/blob/main/environments/${var.environment}/application.yaml")
+data "http" "argocd-application" {
+  url = "https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD/blob/main/environments/${var.environment}/application.yaml"
+}
+
+resource "kubectl_manifest" "argocd-application" {
+  yaml_body = data.http.argocd-application.body
    
   depends_on = [ helm_release.argocd ]
 }
