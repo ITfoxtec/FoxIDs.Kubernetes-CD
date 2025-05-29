@@ -7,7 +7,7 @@ spec:
     source:
         repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
         path: environments/test/myapp
-        targetRevision: main
+        targetRevision: HEAD
     destination:
         server: https://kubernetes.default.svc
         namespace: myapp
