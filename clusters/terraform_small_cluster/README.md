@@ -10,7 +10,7 @@ Place terraform.exe in folder `C:\terraform`
 
 Open PowerShell and navigate to this folder e.g.
 ```
-cd C:\src\GitHub\FoxIDs.Kubernetes-CD
+cd C:\src\GitHub\FoxIDs.Kubernetes-CD\clusters\terraform_small_cluster
 ```
 
 Add path to terraform
