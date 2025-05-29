@@ -11,6 +11,10 @@ spec:
     repoURL: 'https://kiali.org/helm-charts'
     chart: kiali-server
     targetRevision: 2.10.0
+    helm:
+      parameters:
+      - name: "auth.strategy"
+        value: "anonymous"
   destination:
     name: in-cluster
     namespace: istio-system
