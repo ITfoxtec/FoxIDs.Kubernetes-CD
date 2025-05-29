@@ -13,7 +13,9 @@ spec:
     helm:
       parameters:
       - name: "ingress.enabled"
-        value: "false"
+        value: false
+      - name: "bootstrapPassword"
+        value: "admin"
   destination:
     name: in-cluster
     namespace: cattle-system
