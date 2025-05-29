@@ -15,7 +15,7 @@ spec:
       parameters:
       - name: "auth.strategy"
         value: "anonymous"
-      - name: "spec.external_services.prometheus.url"
+      - name: "external_services.prometheus.url"
         value: "http://prometheus-server.monitoring.svc.cluster.local"
   destination:
     name: in-cluster
