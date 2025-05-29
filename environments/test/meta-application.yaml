@@ -9,6 +9,9 @@ spec:
   - path: environments/test/istio
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: HEAD
+  - path: environments/test/cert-manager
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    targetRevision: HEAD
   - path: environments/test/monitoring
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: HEAD
