@@ -12,8 +12,8 @@ spec:
     targetRevision: 2.11.2
     helm:
       parameters:
-      - name: "hostname"
-        value: "rancher.foxids.com"
+      - name: "ingress.enabled"
+        value: "false"
   destination:
     name: in-cluster
     namespace: cattle-system
