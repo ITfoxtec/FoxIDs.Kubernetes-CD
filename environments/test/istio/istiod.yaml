@@ -9,6 +9,10 @@ spec:
     repoURL: 'https://istio-release.storage.googleapis.com/charts'
     chart: istiod
     targetRevision: 1.26.0
+    helm:
+        parameters:
+          - name: "profile"
+          - value: "ambient"
   destination:
     name: in-cluster
     namespace: istio-system

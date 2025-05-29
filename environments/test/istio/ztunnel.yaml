@@ -7,10 +7,10 @@ spec:
   project: default
   source:
     repoURL: 'https://istio-release.storage.googleapis.com/charts'
-    chart: base
+    chart: ztunnel
     targetRevision: 1.26.0
   destination:
-    name: ztunnel
+    name: in-cluster
     namespace: istio-system
   syncPolicy:
     automated:
