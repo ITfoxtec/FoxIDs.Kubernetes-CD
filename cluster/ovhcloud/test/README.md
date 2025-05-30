@@ -65,8 +65,6 @@ Destroy (cleanup) - OPTIONAL
 terraform destroy 
 ```
 
-
-
 # Kubectl on Windows
 Path to kubernetes config
 ```

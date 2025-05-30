@@ -4,6 +4,8 @@
 https://argo-cd.readthedocs.io/en/stable/getting_started/
 
 ### Get admin secret
+You need to run the `kubectl get secret...` in Linux.
+
 Start Linux prompt  
 https://learn.microsoft.com/en-us/windows/wsl/bas
 ```
