@@ -10,7 +10,7 @@ Place terraform.exe in folder `C:\terraform`
 
 Open PowerShell and navigate to this folder e.g.
 ```
-cd C:\src\GitHub\FoxIDs.Kubernetes-CD\clusters\terraform_small_cluster
+cd C:\src\GitHub\FoxIDs.Kubernetes-CD\cluster\ovhcloud\test
 ```
 
 Add path to terraform
@@ -23,6 +23,23 @@ https://registry.terraform.io/providers/ovh/ovh/latest/docs/resources/cloud_proj
 
 ### Get credentials 
 Open "https://api.ovh.com/createToken/?GET=/*&POST=/*&PUT=/*&DELETE=/*"
+
+Create a `terraform.tfvars` file with variables.
+
+```
+ovh_service_name = "xxx" # Your project ID (service name) is fount in the OVHCloud UI below your project name. 
+ovh_vlan_id = "156"
+ovh_region = "GRA7"
+
+# OVH credentials 
+ovh_application_key = "xxx"
+ovh_application_secret = "xxx"
+ovh_consumer_key = "xxx"
+
+# To use DNS validation LetsEncrypt
+cloudflare-api-token = "xxx"
+```
+
 
 ### Use Terraform to create K8s cluster with Argo CD and retrieve kubeconfig
 
@@ -41,11 +58,7 @@ Apply
 terraform apply
 ```
 
-Export kubeconfig
-```
-New-Item -Name ".kube" -ItemType Directory
-terraform output -raw kubeconfig_file > .kube/kubeconfig.yml
-```
+> The kubeconfig file is exported to: `.kube/kubeconfig.yml`
 
 Destroy (cleanup) - OPTIONAL
 ```
