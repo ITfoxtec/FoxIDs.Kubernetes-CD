@@ -11,8 +11,13 @@ spec:
     repoURL: 'https://charts.jetstack.io'
     chart: cert-manager
     targetRevision: 1.17.2
+    helm:
+      parameters:
+      - name: "crds.enabled"
+        value: true
   destination:
     name: in-cluster
+    namespace: cert-manager
   syncPolicy:
     automated:
       prune: true
