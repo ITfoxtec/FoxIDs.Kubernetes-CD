@@ -4,6 +4,7 @@
 # https://argoproj.github.io/argo-helm/
 # https://github.com/argoproj/argo-helm
 # https://artifacthub.io/packages/helm/argo/argo-cd
+# https://medium.com/transmit-security-engineering/building-argocd-ecosystem-with-secret-management-the-gitops-way-part-i-49b4921f7c1f
 
 resource "helm_release" "argocd" {
   name                = "argocd"
@@ -14,6 +15,12 @@ resource "helm_release" "argocd" {
   chart               = "argo-cd"
   version             = "8.0.12"
   cleanup_on_fail     = true
+
+  // Argo admin password
+  set {
+    name  = "configs.secret.argocdServerAdminPassword"
+    value = "${bcrypt(var.admin_password)}"
+  }
 }
 
 data "http" "argocd-application" {

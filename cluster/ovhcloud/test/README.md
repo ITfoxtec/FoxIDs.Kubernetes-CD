@@ -36,6 +36,9 @@ ovh_application_key = "xxx"
 ovh_application_secret = "xxx"
 ovh_consumer_key = "xxx"
 
+# Argo CD admin password
+argocd_admin_password  = "xxx"
+
 # To use DNS validation LetsEncrypt
 cloudflare-api-token = "xxx"
 ```

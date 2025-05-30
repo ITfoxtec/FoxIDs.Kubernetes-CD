@@ -6,15 +6,18 @@ module "ovh-single-cloud" {
 }
 
 module "cert-manager" {
-    source       = "./modules/cert-manager/"
-    cloudflare-api-token  = var.cloudflare-api-token
+    source               = "./modules/cert-manager/"
+    letsencrypt_email    = var.letsencrypt_email
+    cloudflare_email     = var.cloudflare_email
+    cloudflare_api_token = var.cloudflare_api_token
 
-    depends_on   = [ module.ovh-single-cloud ] 
+    depends_on           = [ module.ovh-single-cloud ] 
 }
 
 module "argocd" {
-    source       = "./modules/argocd/"
-    environment  = var.environment
+    source         = "./modules/argocd/"
+    environment    = var.environment
+    admin_password = var.argocd_admin_password
 
-    depends_on   = [ module.cert-manager ] 
+    depends_on     = [ module.cert-manager ] 
 }

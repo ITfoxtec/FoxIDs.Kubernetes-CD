@@ -1,4 +1,10 @@
-variable cloudflare-api-token {
+variable letsencrypt_email {
+  type        = string
+}
+variable cloudflare_email {
+  type        = string
+}
+variable cloudflare_api_token {
   type        = string
   sensitive   = true
 }

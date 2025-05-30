@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: rancher
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
@@ -12,10 +14,14 @@ spec:
     targetRevision: 2.11.2
     helm:
       parameters:
-      - name: "ingress.enabled"
-        value: false
+      - name: "hostname"
+        value: "rancher.admin.test.foxids.com"
+      - name: "ingress.tls.source"
+        value: "secret"
       - name: "bootstrapPassword"
         value: "admin"
+      - name: "ingress.ingressClassName"
+        value: "nginx"
   destination:
     name: in-cluster
     namespace: cattle-system
