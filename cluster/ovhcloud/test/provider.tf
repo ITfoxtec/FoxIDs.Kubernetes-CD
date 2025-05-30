@@ -6,6 +6,9 @@ terraform {
     helm = {
       source = "hashicorp/helm"
     }
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
     kubectl = {
       source  = "gavinbunney/kubectl"
     }
@@ -26,6 +29,13 @@ provider "helm" {
     client_key              = base64decode(module.ovh-single-cloud.client_key)
     cluster_ca_certificate  = base64decode(module.ovh-single-cloud.cluster_ca_certificate)
   }
+}
+
+provider "kubernetes" {
+  host                    = module.ovh-single-cloud.host
+  client_certificate      = base64decode(module.ovh-single-cloud.client_certificate)
+  client_key              = base64decode(module.ovh-single-cloud.client_key)
+  cluster_ca_certificate  = base64decode(module.ovh-single-cloud.cluster_ca_certificate)
 }
 
 provider "kubectl" {
