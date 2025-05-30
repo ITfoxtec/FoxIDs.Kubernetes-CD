@@ -15,18 +15,3 @@ resource "kubernetes_secret" "cloudflare-api-secret" {
 
   type = "Opaque"
 }
-
-resource "kubectl_manifest" "letsencrypt-issuer-cloudflare-api" {
-  yaml_body = templatefile("${path.module}/letsencrypt-issuer-cloudflare-api.yaml", {
-      email = base64encode(var.letsencrypt_email)
-      cloudflare_email = base64encode(var.cloudflare_email)
-    })
-   
-  depends_on = [ kubernetes_secret.cloudflare-api-secret ]
-}
-
-resource "kubectl_manifest" "letsencrypt-issuer" {
-  yaml_body = templatefile("${path.module}/letsencrypt-issuer.yaml", {
-      email = base64encode(var.letsencrypt_email)
-    })
-}

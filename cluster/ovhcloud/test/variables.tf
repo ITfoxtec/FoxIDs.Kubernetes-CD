@@ -1,6 +1,8 @@
 variable environment {
     type        = string
-    default     = "test"
+}
+variable domain {
+    type        = string
 }
 
 variable ovh_service_name {
@@ -8,6 +10,18 @@ variable ovh_service_name {
 }
 variable ovh_vlan_id {
     type        = string
+}
+variable ovh_network {
+    type        = string
+    default     = "192.168.168.0/24"
+}
+variable ovh_network_start {
+    type        = string
+    default     = "192.168.168.100"
+}
+variable ovh_network_end {
+    type        = string
+    default     = "192.168.168.200"
 }
 variable ovh_region {
     type        = string

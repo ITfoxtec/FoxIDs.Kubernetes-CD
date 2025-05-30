@@ -25,7 +25,7 @@ spec:
       - name: "controller.config.real-ip-header"
         value: "proxy_protocol"
       - name: "controller.config.proxy-real-ip-cidr"
-        value: "0.0.0.0/0"
+        value: ${subnet_list}
   destination:
     name: in-cluster
     namespace: ingress-nginx

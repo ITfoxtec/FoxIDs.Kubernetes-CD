@@ -11,9 +11,9 @@ resource "ovh_cloud_project_network_private_subnet" "subnet" {
 
     # whatever region, for test purpose
     region       = var.region
-    start        = "192.168.168.100"
-    end          = "192.168.168.200"
-    network      = "192.168.168.0/24"
+    start        = var.network_start
+    end          = var.network_end
+    network      = var.network
     dhcp         = true
     no_gateway   = false
 

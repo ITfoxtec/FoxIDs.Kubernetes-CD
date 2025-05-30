@@ -5,13 +5,13 @@ metadata:
 spec:
   acme:   
     server: https://acme-staging-v02.api.letsencrypt.org/directory 
-    email: $(email) 
+    email: ${email} 
     privateKeySecretRef:     
      name: letsencrypt-api-staging 
     solvers:
       - dns01:
           cloudflare:
-            email: $(cloudflare_email)
+            email: ${cloudflare_email}
             apiTokenSecretRef:
               name: cloudflare-api-token
               key: api-token
@@ -23,13 +23,13 @@ metadata:
 spec:
   acme:   
     server: https://acme-v02.api.letsencrypt.org/directory 
-    email: $(email)
+    email: ${email}
     privateKeySecretRef:     
       name: letsencrypt-api-production 
     solvers:
       - dns01:
           cloudflare:
-            email: $(cloudflare_email)
+            email: ${cloudflare_email}
             apiTokenSecretRef:
               name: cloudflare-api-token
               key: api-token

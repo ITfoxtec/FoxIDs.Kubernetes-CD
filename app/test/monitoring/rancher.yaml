@@ -15,7 +15,7 @@ spec:
     helm:
       parameters:
       - name: "hostname"
-        value: "rancher.admin.test.foxids.com"
+        value: "rancher.admin.${domain}"
       - name: "ingress.tls.source"
         value: "secret"
       - name: "bootstrapPassword"

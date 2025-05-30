@@ -1,0 +1,5 @@
+environment: $(var.environment)
+domain: $(var.domain)
+letsencrypt_email: $(var.letsencrypt_email)
+cloudflare_email: $(var.cloudflare_email)
+subnet_list: $(var.subnet_list)

@@ -27,6 +27,9 @@ Open "https://api.ovh.com/createToken/?GET=/*&POST=/*&PUT=/*&DELETE=/*"
 Create a `terraform.tfvars` file with variables.
 
 ```
+environment            = "test"
+domain                 = "test.foxids.com"
+
 ovh_service_name = "xxx" # Your project ID (service name) is fount in the OVHCloud UI below your project name. 
 ovh_vlan_id = "156"
 ovh_region = "GRA7"
@@ -39,7 +42,9 @@ ovh_consumer_key = "xxx"
 # Argo CD admin password
 argocd_admin_password  = "xxx"
 
+letsencrypt_email = "xxx"
 # To use DNS validation LetsEncrypt
+cloudflare_email = "xxx"
 cloudflare-api-token = "xxx"
 ```
 

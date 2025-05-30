@@ -21,6 +21,17 @@ resource "helm_release" "argocd" {
     name  = "configs.secret.argocdServerAdminPassword"
     value = "${bcrypt(var.admin_password)}"
   }
+
+  // Pass values through, referencing them within the template file
+  values = [
+    templatefile("${path.module}/argo-values.yaml", {  
+      environment       = var.environment,
+      domain            = var.domain,
+      letsencrypt_email = var.letsencrypt_email,
+      cloudflare_email  = var.cloudflare_email,
+      subnet_list       = var.subnet_list,
+    })
+  ]
 }
 
 data "http" "argocd-application" {
