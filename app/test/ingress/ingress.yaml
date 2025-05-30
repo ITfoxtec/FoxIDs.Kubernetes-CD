@@ -19,9 +19,9 @@ spec:
       - name: "controller.service.annotations.loadbalancer.ovhcloud.com/flavor"
         value: "small"
       - name: "controller.service.annotations.loadbalancer.openstack.org/enable-health-monitor"
-        value: false
+        value: "false"
       - name: "controller.config.use-proxy-protocol"
-        value: true
+        value: "true"
       - name: "controller.config.real-ip-header"
         value: "proxy_protocol"
       - name: "controller.config.proxy-real-ip-cidr"
