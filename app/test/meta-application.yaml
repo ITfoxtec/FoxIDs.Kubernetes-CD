@@ -6,19 +6,19 @@ metadata:
 spec:
   project: default
   sources:
-  - path: environments/test/istio
+  - path: app/test/istio
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: HEAD
-  - path: environments/test/cert-manager
+  - path: app/test/cert-manager
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: HEAD
-  - path: environments/test/ingress
+  - path: app/test/ingress
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: HEAD
-  - path: environments/test/monitoring
+  - path: app/test/monitoring
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: HEAD
-  - path: environments/test/myapp
+  - path: app/test/myapp
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: HEAD
     directory:

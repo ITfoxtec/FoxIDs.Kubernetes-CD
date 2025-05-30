@@ -1,3 +1,37 @@
+# Monitoring
+
+## Argo CD  Dashboard
+https://argo-cd.readthedocs.io/en/stable/getting_started/
+
+### Get admin secret
+Start Linux prompt  
+https://learn.microsoft.com/en-us/windows/wsl/bas
+```
+wsl
+```
+
+Path to kubernetes config
+```
+export KUBECONFIG=.kube/kubeconfig.yml
+```
+
+If not installed, install `kubectl`, then `exit` and open `wsl` again.
+```
+sudo snap install kubectl --classic
+```
+
+Get `admin` user's password
+```
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
+```
+
+### Open Argo CD 
+https://localhost:3443
+
+```
+kubectl port-forward svc/argocd-server -n argocd 3443:443
+```
+
 ## Access Grafana Dashboard
 
 http://localhost:3000

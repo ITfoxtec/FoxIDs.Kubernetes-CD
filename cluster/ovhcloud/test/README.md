@@ -65,31 +65,7 @@ Destroy (cleanup) - OPTIONAL
 terraform destroy 
 ```
 
-# Argo CD
-https://argo-cd.readthedocs.io/en/stable/getting_started/
 
-## Get admin secret
-Start Linux prompt
-```
-wsl
-```
-
-Path to kubernetes config
-```
-export KUBECONFIG=.kube/kubeconfig.yml
-```
-
-Get admin users password
-```
-kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
-```
-
-## Open Argo CD 
-https://localhost:3443
-
-```
-kubectl port-forward svc/argocd-server -n argocd 3443:443
-```
 
 # Kubectl on Windows
 Path to kubernetes config

@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
-    path: environments/test/myapp
+    path: app/test/myapp
     targetRevision: HEAD
     directory:
       exclude: application.yaml

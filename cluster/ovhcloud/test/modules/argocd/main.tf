@@ -1,3 +1,4 @@
+# https://argo-cd.readthedocs.io/en/stable/getting_started/
 # https://argoproj.github.io/cd/
 # https://argo-cd.readthedocs.io/
 # https://argoproj.github.io/argo-helm/
