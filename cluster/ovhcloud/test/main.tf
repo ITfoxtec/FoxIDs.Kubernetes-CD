@@ -10,6 +10,8 @@ module "ovh-single-cloud" {
 
 module "cert-manager" {
     source               = "./modules/cert-manager/"
+    letsencrypt_email = var.letsencrypt_email
+    cloudflare_email  = var.cloudflare_email
     cloudflare_api_token = var.cloudflare_api_token
 
     depends_on           = [ module.ovh-single-cloud ] 
