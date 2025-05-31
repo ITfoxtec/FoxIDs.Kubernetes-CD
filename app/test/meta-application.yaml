@@ -8,23 +8,12 @@ metadata:
 spec:
   project: default
   sources:
-  - path: app/test/istio
-    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
-    targetRevision: HEAD
-  - path: app/test/cert-manager
-    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
-    targetRevision: HEAD
-  - path: app/test/ingress
-    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
-    targetRevision: HEAD
-  - path: app/test/monitoring
-    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
-    targetRevision: HEAD
-  - path: app/test/myapp
+  - path: app/test
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: HEAD
     directory:
       include: application.yaml
+      exclude: meta-application.yaml
   destination:
     name: in-cluster
     namespace: argocd
