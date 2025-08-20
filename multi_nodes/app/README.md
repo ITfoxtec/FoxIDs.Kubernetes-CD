@@ -70,8 +70,12 @@ Run:
 kubectl port-forward svc/argocd-server -n argocd 3443:443
 ```
 Connect to Argo CD  Dashboard on https://localhost:3443  
-    username: admin  
-    Password: --> terraform.tfvars --> argocd-admin-password
+
+Credentials:
+```text
+Username: admin
+Password: terraform.tfvars -> argocd-admin-password
+```
 
 ### Common Issues
 
