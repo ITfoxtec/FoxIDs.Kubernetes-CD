@@ -1,0 +1,42 @@
+# https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: 'https://kubernetes.github.io/ingress-nginx'
+    chart: ingress-nginx
+    targetRevision: 4.12.2
+    helm:
+      valuesObject:
+        controller:
+          replicaCount: 3
+          service:
+            externalTrafficPolicy: "Local"
+            annotations:
+              # --- OVHcloud specific annotations (Managed Kubernetes LB) ---
+              # Enables PROXY protocol on the OVHcloud (OpenStack based) load balancer to preserve original client IP.
+              loadbalancer.openstack.org/proxy-protocol: "v2"
+              # Selects the OVHcloud load balancer flavor (size / capacity). Options commonly: small | medium | large
+              loadbalancer.ovhcloud.com/flavor: "small"
+              # (OVHcloud/OpenStack) Disable health monitor if you rely on NGINX readiness / liveness instead.
+              loadbalancer.openstack.org/enable-health-monitor: false
+              # --- End OVHcloud specific annotations ---
+          config:
+            use-proxy-protocol: true            # Required because PROXY protocol enabled above.
+            real-ip-header: "proxy_protocol"    # Align real IP extraction with PROXY protocol.
+            # proxy-real-ip-cidr: "192.168.168.0/24"   # Adjust to your OVHcloud LB source IP range.
+  destination:
+    name: in-cluster
+    namespace: ingress-nginx
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

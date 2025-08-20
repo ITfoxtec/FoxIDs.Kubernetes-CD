@@ -1,0 +1,31 @@
+# https://artifacthub.io/packages/helm/cert-manager/cert-manager
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://charts.jetstack.io'
+    chart: cert-manager
+    targetRevision: 1.17.2
+    helm:
+      parameters:
+      - name: "crds.enabled"
+        value: "true"
+      - name: "crds.keep"
+        value: "true"
+  destination:
+    name: in-cluster
+    namespace: cert-manager
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
