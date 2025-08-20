@@ -31,6 +31,8 @@ Suggested hostnames:
 - Argo CD (optional): argocd.admin.test-multi-nodes.foxids.com
 - OpenSearch Dashboards (optional): opensearch.admin.test-multi-nodes.foxids.com
 
+> Initially, connect to the [Argo CD Dashboard on localhost](#argo_cd_dashboard_on_localhost) to monitor deployment progress.
+
 ## Topology & High Availability
 
 - Application pods (FoxIDs / Control) are stateless and horizontally scalable; scale replicas for throughput.
@@ -63,6 +65,8 @@ Suggested hostnames:
 - Implement network policies if you need to restrict east-west traffic.
 
 ## Troubleshooting
+
+### Argo CD Dashboard on localhost
 
 Start by connection to Argo CD Dashboard on localhost with port-forwarding, then check application statuses and logs.  
 Run:
