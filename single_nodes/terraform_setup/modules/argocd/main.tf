@@ -47,7 +47,7 @@ resource "kubernetes_secret" "argocd-secret" {
 
 resource "kubectl_manifest" "argocd-meta-application" {
   yaml_body = templatefile("${path.module}/meta-application.yaml", {
-      url = base64encode(var.git-repo-url)
+      url = var.git-repo-url
     })
 
   depends_on = [ kubernetes_secret.argocd-secret ]  
