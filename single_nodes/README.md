@@ -11,14 +11,11 @@ The deployment is bootstrapped with either `kubectl` or `Terraform` and then the
 
 ## Before you start
 
-1)  
-Clone this git repository
+1) Clone this git repository
 
-2)  
-Search `test-single-nodes.foxids.com` and replace the domain with your domain.
+2) Search `test-single-nodes.foxids.com` and replace the domain with your domain.
 
-3)
-Search `xxx@my-domain.com` and replace the email with your appropriated emails.
+3) Search `xxx@my-domain.com` and replace the email with your appropriated emails.
 
 # Access to Kubernetes cluster
 
