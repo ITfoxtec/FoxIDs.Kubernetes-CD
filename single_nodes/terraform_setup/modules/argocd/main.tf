@@ -17,10 +17,12 @@ resource "helm_release" "argocd" {
   cleanup_on_fail     = true
 
   # Argo admin password
-  set {
-    name  = "configs.secret.argocdServerAdminPassword"
-    value = "${bcrypt(var.admin-password)}"
-  }
+  set = [
+    {
+      name  = "configs.secret.argocdServerAdminPassword"
+      value = "${bcrypt(var.admin-password)}"
+    }
+  ]
 }
 
 resource "kubernetes_secret" "argocd-secret" {

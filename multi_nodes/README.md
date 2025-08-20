@@ -23,7 +23,7 @@ The deployment is bootstrapped with either `kubectl` or `Terraform` and then the
 
 Configure access to you Kubernetes cluster.
 
-Place your clusters `kubeconfig.yml` file in: `.kubectl_setup\kube\kubeconfig.yml` or `.terraform_setup\kube\kubeconfig.yml` depending on which bootstrap method you choose.
+Place your clusters `kubeconfig.yml` file in: `kubectl_setup\kube\kubeconfig.yml` or `terraform_setup\kube\kubeconfig.yml` depending on which bootstrap method you choose.
 
 ## Bootstrap deployment
 

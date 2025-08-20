@@ -13,7 +13,7 @@ terraform {
 }
 
 provider "helm" {
-  kubernetes {
+  kubernetes = {
     config_path = ".kube/kubeconfig.yml"
   }
 }

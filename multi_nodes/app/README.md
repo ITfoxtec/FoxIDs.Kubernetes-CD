@@ -65,6 +65,24 @@ Suggested hostnames:
 ## Troubleshooting
 
 - Argo CD app OutOfSync: inspect diff, ensure branch / path correct.
+  - Connect to Argo CD  Dashboard on https://localhost:3443 (username: admin, Password: --> terraform.tfvars --> argocd-admin-password)
+    Run:
+    ```
+    kubectl port-forward svc/argocd-server -n argocd 3443:443
+    ```
 - Pods Pending: verify storage class / resource quotas.
 - Ingress 404: confirm hostnames & DNS propagation; check ingress controller logs.
 - Authentication issues: confirm FoxIDs Control reachable and MongoDB connectivity.
+
+
+# Kubectl on Windows
+Path to kubernetes config
+
+```
+$env:KUBECONFIG="..\kubectl_setup\.kube\kubeconfig.yml"
+```
+or 
+```
+$env:KUBECONFIG="..\terraform_setup\.kube\kubeconfig.yml"
+```
+depending on which bootstrap method you choose.

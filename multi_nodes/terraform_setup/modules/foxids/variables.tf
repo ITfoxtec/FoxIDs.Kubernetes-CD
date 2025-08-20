@@ -10,21 +10,8 @@ variable mongodb-foxids-password {
   type        = string
   sensitive   = true
 }
-variable mongodb-foxids-web-password {
-  type        = string
-  sensitive   = true
-}
-
-variable redis-password {
-  type        = string
-  sensitive   = true
-}
 
 variable opensearch-password {
-  type        = string
-  sensitive   = true
-}
-variable logstash-password {
   type        = string
   sensitive   = true
 }
