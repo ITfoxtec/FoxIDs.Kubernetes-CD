@@ -1,34 +1,38 @@
-# Deploy FoxIDs
+# Deploy FoxIDs (Multi-Node Setup)
 
-Deploy FoxIDs as an installation with multi notes.
+Deploy FoxIDs as a scalable, multi-node installation.
 
-- FoxIDs site (multi node)
-- FoxIDs Control site (multi node)
-- MongoDB (multi node)
-- OpenSearch (multi node)
+- **FoxIDs site** (multi-node)
+- **FoxIDs Control site** (multi-node)
+- **MongoDB** (multi-node)
+- **OpenSearch** (multi-node)
 
-The deployment is found in the [app](app) folder.
-   
-The deployment is bootstrapped with either `kubectl` or `Terraform` and then the Argo CD do GitOps deployment.
+Deployment manifests are located in the [app](app) folder.
 
-## Before you start
+The deployment is bootstrapped using either `kubectl` or `Terraform`, followed by GitOps deployment with Argo CD.
 
-1) Clone this git repository
+## Prerequisites
 
-2) Search `test-multi-nodes.foxids.com` and replace the domain with your domain.
+1. **Clone this repository.**
+2. **Update domain references:** Search for `test-multi-nodes.foxids.com` and replace it with your domain.
+3. **Update email addresses:** Search for `xxx@my-domain.com` and replace with your appropriate email addresses.
+4. **Configure DNS:** Set up DNS records for your domain after obtaining the IP address of your Kubernetes cluster's Ingress controller. Configure DNS as early as possible, since Let's Encrypt certificate issuance uses DNS validation.
 
-3) Search `xxx@my-domain.com` and replace the email with your appropriated emails.
+## Accessing the Kubernetes Cluster
 
-# Access to Kubernetes cluster
+Configure access to your Kubernetes cluster:
 
-Configure access to you Kubernetes cluster.
+- Place your cluster's `kubeconfig.yml` file in either:
+  - `kubectl_setup\kube\kubeconfig.yml` (for kubectl bootstrap)
+  - `terraform_setup\kube\kubeconfig.yml` (for Terraform bootstrap)
 
-Place your clusters `kubeconfig.yml` file in: `kubectl_setup\kube\kubeconfig.yml` or `terraform_setup\kube\kubeconfig.yml` depending on which bootstrap method you choose.
+## Bootstrapping Deployment
 
-## Bootstrap deployment
+Choose a bootstrap method:
 
-Bootstrap deployment with either `kubectl` or `Terraform`.
+- For **kubectl**, continue in the [kubectl_setup](kubectl_setup) folder.
+- For **Terraform**, continue in the [terraform_setup](terraform_setup) folder.
 
-For `kubectl` continue in the [kubectl_setup](kubectl_setup) folder.
+---
 
-For `Terraform` continue in the [terraform_setup](terraform_setup) folder.
+For further details, refer to the documentation in each setup folder.

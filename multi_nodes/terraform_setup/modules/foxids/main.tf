@@ -1,4 +1,4 @@
-resource "kubernetes_namespace" "foxids_ns" {
+resource "kubernetes_namespace" "foxids-ns" {
   metadata {
     name = "foxids"
   }
@@ -12,13 +12,14 @@ resource "kubernetes_secret" "mongodb-secret" {
 
   data = {
     mongodb-root-password = var.mongodb-root-password
+    mongodb-replica-set-key = var.mongodb-replica-set-key
     mongodb-foxids-password = var.mongodb-foxids-password
     mongodb-passwords = "${var.mongodb-foxids-password}"
   }
 
   type = "Opaque"
 
-  depends_on = [ kubernetes_namespace.foxids_ns ] 
+  depends_on = [ kubernetes_namespace.foxids-ns ] 
 }
 
 resource "kubernetes_secret" "opensearch-secret" {
@@ -33,7 +34,7 @@ resource "kubernetes_secret" "opensearch-secret" {
 
   type = "Opaque"
 
-  depends_on = [ kubernetes_namespace.foxids_ns ] 
+  depends_on = [ kubernetes_namespace.foxids-ns ] 
 }
 
 resource "kubernetes_secret" "smtp-secret" {
@@ -51,7 +52,7 @@ resource "kubernetes_secret" "smtp-secret" {
 
   type = "Opaque"
 
-  depends_on = [ kubernetes_namespace.foxids_ns ] 
+  depends_on = [ kubernetes_namespace.foxids-ns ] 
 }
 
 resource "kubernetes_secret" "sms-secret" {
@@ -68,5 +69,5 @@ resource "kubernetes_secret" "sms-secret" {
 
   type = "Opaque"
 
-  depends_on = [ kubernetes_namespace.foxids_ns ]  
+  depends_on = [ kubernetes_namespace.foxids-ns ]  
 }

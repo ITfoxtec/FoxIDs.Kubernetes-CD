@@ -23,7 +23,7 @@ Supporting / internal Kubernetes objects:
 
 ## Default Domains (replace test-multi-nodes.foxids.com)
 
-Search and replace the placeholder domain per the parent README instructions.
+Search and replace the placeholder domain per the [parent README instructions](../).
 
 Suggested hostnames:
 - FoxIDs: ids.test-multi-nodes.foxids.com
