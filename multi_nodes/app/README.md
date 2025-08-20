@@ -26,7 +26,7 @@ Supporting / internal Kubernetes objects:
 Search and replace the placeholder domain per the [parent README instructions](../).
 
 Suggested hostnames:
-- FoxIDs: ids.test-multi-nodes.foxids.com
+- FoxIDs: id.test-multi-nodes.foxids.com
 - FoxIDs Control: control.test-multi-nodes.foxids.com
 - Argo CD (optional): argocd.admin.test-multi-nodes.foxids.com
 - OpenSearch Dashboards (optional): opensearch.admin.test-multi-nodes.foxids.com
