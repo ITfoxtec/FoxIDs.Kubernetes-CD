@@ -16,6 +16,11 @@ spec:
     targetRevision: 2.0.3
     helm:
       valuesObject:
+        # --- OVHcloud specific storage class ---
+        global:                         
+          defaultStorageClass: csi-cinder-high-speed-gen2
+          #defaultStorageClass: csi-cinder-high-speed
+        # --- End OVHcloud specific storage class ---
         master:
           replicaCount: 2
           persistence:
