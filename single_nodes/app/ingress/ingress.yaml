@@ -25,7 +25,7 @@ spec:
           config:
             use-proxy-protocol: true
             real-ip-header: "proxy_protocol"
-            proxy-real-ip-cidr: "192.168.168.0/24"   
+            proxy-real-ip-cidr: "10.1.0.0/16"   
   destination:
     name: in-cluster
     namespace: ingress-nginx
