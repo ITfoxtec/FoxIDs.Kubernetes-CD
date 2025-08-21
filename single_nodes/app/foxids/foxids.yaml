@@ -32,8 +32,6 @@ spec:
               value: "true"
             - name: "Settings__TrustProxySchemeHeader"
               value: "true"
-            - name: "Settings__IgnoreProxyHeaderDomain"
-              value: "id.test-single-nodes.foxids.com"
             - name: "Settings__FoxIDsEndpoint"
               value: "https://id.test-single-nodes.foxids.com" 
             - name: "Settings__Address__CompanyName"
