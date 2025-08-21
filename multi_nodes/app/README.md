@@ -2,6 +2,8 @@
 
 This folder contains the Argo CD GitOps application manifests that together deploy the full multi node FoxIDs environment.
 
+> It takes some time from bootstrap deployment is done until Argo CD is ready. You can follow the status via the [Argo CD Dashboard on localhost](#argo_cd_dashboard_on_localhost).
+
 ## What Is Installed
 
 Stateless / Ingress exposed:

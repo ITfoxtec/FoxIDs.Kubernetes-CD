@@ -33,6 +33,6 @@ Choose a bootstrap method:
 - For **kubectl**, continue in the [kubectl_setup](kubectl_setup) folder.
 - For **Terraform**, continue in the [terraform_setup](terraform_setup) folder.
 
----
+> It takes some time from bootstrap deployment is done until Argo CD is ready. You can follow the status via the [Argo CD Dashboard on localhost](app/readme.md#argo_cd_dashboard_on_localhost).
 
-For further details, refer to the documentation in each setup folder.
+For further details about what is installed, please see the [app](app) folder.
