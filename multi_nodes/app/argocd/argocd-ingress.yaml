@@ -13,10 +13,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - argocd.admin.test-multi-nodes.foxids.com
+      - argocd.test-multi-nodes.foxids.com
       secretName: argocd-ingress-tls
   rules:
-  - host: argocd.admin.test-multi-nodes.foxids.com
+  - host: argocd.test-multi-nodes.foxids.com
     http:
       paths:
       - path: /
