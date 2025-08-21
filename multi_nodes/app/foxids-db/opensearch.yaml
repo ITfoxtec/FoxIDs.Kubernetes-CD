@@ -16,11 +16,11 @@ spec:
     targetRevision: 2.0.3
     helm:
       valuesObject:
-        # --- OVHcloud specific storage class ---
         global:                         
+          # --- OVHcloud specific storage class ---
           defaultStorageClass: csi-cinder-high-speed-gen2
           #defaultStorageClass: csi-cinder-high-speed
-        # --- End OVHcloud specific storage class ---
+          # --- End OVHcloud specific storage class ---
         master:
           replicaCount: 2
           persistence:
@@ -102,8 +102,6 @@ spec:
             hostname: "opensearch.test-multi-nodes.foxids.com"
             annotations: 
               #nginx.ingress.kubernetes.io/whitelist-source-range: "xxx.xxx.xxx.xxx" # whitelist office IP address
-              nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
-              nginx.ingress.kubernetes.io/proxy-buffer-size: "32k"
               cert-manager.io/cluster-issuer: "letsencrypt" 
               # nginx.ingress.kubernetes.io/secure-backends: "true"
               # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
