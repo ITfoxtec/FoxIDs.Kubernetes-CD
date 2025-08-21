@@ -7,6 +7,8 @@ Deploy FoxIDs as a scalable, multi-node installation.
 - **MongoDB** (multi-node)
 - **OpenSearch** (multi-node)
 
+Minimum recommended cluster: three servers, each with 4 vCPUs, 16 GB RAM, and 100 GB SSD.
+
 Deployment manifests are located in the [app](app) folder.
 
 The deployment is bootstrapped using either `kubectl` or `Terraform`, followed by GitOps deployment with Argo CD.

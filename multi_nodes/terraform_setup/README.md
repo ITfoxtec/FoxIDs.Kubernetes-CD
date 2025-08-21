@@ -26,29 +26,31 @@ Place your clusters `kubeconfig.yml` file in:
 Create a `terraform.tfvars` file with environment variables.
 ```
 # Argo CD admin users password
-argocd-admin-password         = "admin"
+argocd-admin-password          = "admin"
 
 # Add your git repository, this git repository is https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
-git-repo-url                  = "https://xxx.xxx/xxx.git"
+git-repo-url                   = "https://xxx.xxx/xxx.git"
 
 # Optionally, add access to private Git repository
-git-repo-username             = "xxx@xxx.xxx"
-git-repo-password             = "xxx"
+git-repo-username              = "xxx@xxx.xxx"
+git-repo-password              = "xxx"
 
 # MongoDB Root user password
-mongodb-root-password         = "my-root-password"
+mongodb-root-password          = "my-root-password"
 # FoxIDs DB user password
-mongodb-foxids-password       = "my-foxids-db-password"
+mongodb-foxids-password        = "my-foxids-db-password"
 
 # OpenSearch admin user password
-opensearch-password           = "my-admin-password"
+opensearch-password            = "my-admin-password"
+# Internal OpenSearch password for the Dashboard
+opensearch-dashboards-password = "internal-dashboard-password"
 
 # Optionally, SMTP username and password
-smtp-username                 = "xxx"
-smtp-password                 = "xxx"
+smtp-username                  = "xxx"
+smtp-password                  = "xxx"
 
 # Optionally, SMS secret for e.g. https://gatewayapi.eu
-sms-secret                    = "xxx"
+sms-secret                     = "xxx"
 
 ```
 
