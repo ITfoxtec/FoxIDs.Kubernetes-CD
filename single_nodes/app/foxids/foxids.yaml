@@ -147,6 +147,8 @@ spec:
               value: "https://control.test-single-nodes.foxids.com"
             - name: "Settings__MasterSeedEnabled"
               value: "true"
+            - name: "Settings__MainTenantSeedEnabled"
+              value: "true"
             - name: "Settings__Address__CompanyName"
               value: "My company name"
             - name: "Settings__Address__AddressLine1"
