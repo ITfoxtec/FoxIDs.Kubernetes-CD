@@ -24,7 +24,7 @@ spec:
         replicaCount: 3
         global: 
           # --- OVHcloud specific storage class ---
-          defaultStorageClass: csi-cinder-high-speed-gen2
+          #defaultStorageClass: csi-cinder-high-speed-gen2
           #defaultStorageClass: csi-cinder-high-speed   
           # --- End OVHcloud specific storage class ---
         persistence:
