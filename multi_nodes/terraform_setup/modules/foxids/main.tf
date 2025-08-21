@@ -30,6 +30,7 @@ resource "kubernetes_secret" "opensearch-secret" {
 
   data = {
     opensearch-password = var.opensearch-password
+    opensearch-dashboards-password = var.opensearch-dashboards-password
   }
 
   type = "Opaque"
