@@ -16,7 +16,12 @@ The deployment is bootstrapped using either `kubectl` or `Terraform`, followed b
 ## Prerequisites
 
 1. **Clone this repository.**
-2. **Update domain references:** Search for `test-multi-nodes.foxids.com` and replace it with your domain.
+2. **Update domain references:** Search for `test-multi-nodes.foxids.com` and replace it with your base domain e.g, `my-company.com`.
+   List of domains:
+    - FoxIDs: `id.test-multi-nodes.foxids.com`
+    - FoxIDs Control: `control.test-multi-nodes.foxids.com`
+    - Argo CD (optional): `argocd.test-multi-nodes.foxids.com`
+    - OpenSearch Dashboards (optional): `opensearch.test-multi-nodes.foxids.com`
 3. **Update email addresses:** Search for `xxx@my-domain.com` and replace with your appropriate email addresses.
 4. **Configure DNS:** Set up DNS records for your domain after obtaining the IP address of your Kubernetes cluster's Ingress controller. Configure DNS as early as possible, since Let's Encrypt certificate issuance uses DNS validation.
 
