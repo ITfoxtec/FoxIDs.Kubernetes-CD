@@ -22,9 +22,6 @@ spec:
           ports:
             - containerPort: 8800
           env:
-            # Optional public website URL (uncomment and set if hosting a marketing site separately)
-            # - name: "Settings__WebsiteUrl"
-            #   value: "https://www.test-multi-nodes.foxids.com"
             - name: "ASPNETCORE_URLS"
               value: "http://+:8800"
             - name: "Settings__UseHttp"

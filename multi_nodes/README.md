@@ -7,7 +7,7 @@ Deploy FoxIDs in a scalable, highly available multi-node topology.
 - **MongoDB** (replica set)
 - **OpenSearch** (cluster)
 
-Minimum recommended cluster size: 3 worker nodes (servers), each with 4 vCPUs, 16 GiB RAM, and 100 GiB SSD.
+Minimum recommended cluster size: 3 worker nodes (servers), each with 4 vCPUs, 16 GB RAM, and 100 GiB SSD.
 
 Deployment manifests are located in the [app](app) folder.
 
@@ -23,7 +23,8 @@ The deployment is bootstrapped using either `kubectl` or `Terraform`, followed b
    - Argo CD (optional): `argocd.test-multi-nodes.foxids.com`
    - OpenSearch Dashboards (optional): `opensearch.test-multi-nodes.foxids.com`
 3. Replace placeholder emails `xxx@my-domain.com` with valid addresses.
-4. Configure DNS records for all required hostnames after (or while) obtaining the Ingress controller public IP. Do this early so Let's Encrypt can validate domains for certificate issuance.
+4. For production, edit [letsencrypt-issuer.yaml](app/cluster-issuer/letsencrypt-issuer.yaml) to switch the Let's Encrypt ClusterIssuer from staging to production (update the ACME server URL) and be mindful of rate limits.
+5. Configure DNS records for all required hostnames after (or while) obtaining the Ingress controller public IP. Do this early so Let's Encrypt can validate domains for certificate issuance.
 
 ## Accessing the Kubernetes Cluster
 
