@@ -214,3 +214,28 @@ spec:
   type: ClusterIP
   selector:
     app: foxids-control
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: foxids-restart
+spec:
+  # Every 25 hours (0 */25 * * *)
+  schedule: "0 */25 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: kubectl
+              image: bitnami/kubectl:latest
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  kubectl patch deployment foxids-deployment -n $(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace) -p \
+                    "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"kubectl.kubernetes.io/restartedAt\":\"$(date +%Y-%m-%dT%H:%M:%S)\"}}}}}"
+                  kubectl patch deployment foxids-control-deployment -n $(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace) -p \
+                    "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"kubectl.kubernetes.io/restartedAt\":\"$(date +%Y-%m-%dT%H:%M:%S)\"}}}}}"
+          serviceAccountName: default
