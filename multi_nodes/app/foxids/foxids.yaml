@@ -22,6 +22,7 @@ spec:
           ports:
             - containerPort: 8800
           env:
+            # Optional public website URL (uncomment and set if hosting a marketing site separately)
             # - name: "Settings__WebsiteUrl"
             #   value: "https://www.test-multi-nodes.foxids.com"
             - name: "ASPNETCORE_URLS"
@@ -89,7 +90,7 @@ spec:
             - name: "Settings__OpenSearch__Nodes__0"
               value: "https://admin:$(OPENSEARCH_PASSWORD)@opensearch.foxids.svc.cluster.local:9200"
             - name: "Settings__OpenSearch__AllowInsecureCertificates" 
-              value: "true" # Accept self-signed certificate
+              value: "true" # Accept self-signed certificate (disable after adding trusted certs)
             - name: "Settings__OpenSearch__LogLifetime"
               value: "Max180Days"
             - name: MONGODB_PASSWORD
@@ -144,9 +145,9 @@ spec:
             - name: "Settings__FoxIDsControlEndpoint"
               value: "https://control.test-multi-nodes.foxids.com"
             - name: "Settings__MasterSeedEnabled"
-              value: "true"
+              value: "true"   # Enables seeding of master tenant artifacts
             - name: "Settings__MainTenantSeedEnabled"
-              value: "true"
+              value: "true"   # Enables seeding of the main tenant
             - name: "Settings__Address__CompanyName"
               value: "My company name"
             - name: "Settings__Address__AddressLine1"
@@ -173,7 +174,7 @@ spec:
             - name: "Settings__OpenSearch__Nodes__0"
               value: "https://admin:$(OPENSEARCH_PASSWORD)@opensearch.foxids.svc.cluster.local:9200"
             - name: "Settings__OpenSearch__AllowInsecureCertificates" 
-              value: "true" # Accept self-signed certificate
+              value: "true" # Accept self-signed certificate (replace when using trusted certs)
             - name: "Settings__OpenSearch__LogLifetime"
               value: "Max180Days"
             - name: MONGODB_PASSWORD

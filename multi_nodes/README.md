@@ -1,45 +1,45 @@
 # Deploy FoxIDs (Multi-Node Setup)
 
-Deploy FoxIDs as a scalable, multi-node installation.
+Deploy FoxIDs in a scalable, highly available multi-node topology.
 
 - **FoxIDs site** (multi-node)
 - **FoxIDs Control site** (multi-node)
-- **MongoDB** (multi-node)
-- **OpenSearch** (multi-node)
+- **MongoDB** (replica set)
+- **OpenSearch** (cluster)
 
-Minimum recommended cluster: three servers, each with 4 vCPUs, 16 GB RAM, and 100 GB SSD.
+Minimum recommended cluster size: 3 worker nodes (servers), each with 4 vCPUs, 16 GiB RAM, and 100 GiB SSD.
 
 Deployment manifests are located in the [app](app) folder.
 
-The deployment is bootstrapped using either `kubectl` or `Terraform`, followed by GitOps deployment with Argo CD.
+The deployment is bootstrapped using either `kubectl` or `Terraform`, followed by GitOps reconciliation with Argo CD.
 
 ## Prerequisites
 
-1. **Clone this repository.**
-2. **Update domain references:** Search for `test-multi-nodes.foxids.com` and replace it with your base domain e.g, `my-company.com`.
-   List of domains:
-    - FoxIDs: `id.test-multi-nodes.foxids.com`
-    - FoxIDs Control: `control.test-multi-nodes.foxids.com`
-    - Argo CD (optional): `argocd.test-multi-nodes.foxids.com`
-    - OpenSearch Dashboards (optional): `opensearch.test-multi-nodes.foxids.com`
-3. **Update email addresses:** Search for `xxx@my-domain.com` and replace with your appropriate email addresses.
-4. **Configure DNS:** Set up DNS records for your domain after obtaining the IP address of your Kubernetes cluster's Ingress controller. Configure DNS as early as possible, since Let's Encrypt certificate issuance uses DNS validation.
+1. Clone this repository.  
+2. Replace all occurrences of the placeholder base domain `test-multi-nodes.foxids.com` with your real domain (e.g. `my-company.com`).  
+   Default hostnames (update as needed):
+   - FoxIDs: `id.test-multi-nodes.foxids.com`
+   - FoxIDs Control: `control.test-multi-nodes.foxids.com`
+   - Argo CD (optional): `argocd.test-multi-nodes.foxids.com`
+   - OpenSearch Dashboards (optional): `opensearch.test-multi-nodes.foxids.com`
+3. Replace placeholder emails `xxx@my-domain.com` with valid addresses.
+4. Configure DNS records for all required hostnames after (or while) obtaining the Ingress controller public IP. Do this early so Let's Encrypt can validate domains for certificate issuance.
 
 ## Accessing the Kubernetes Cluster
 
-Configure access to your Kubernetes cluster:
-
-- Place your cluster's `kubeconfig.yml` file in either:
-  - `kubectl_setup\kube\kubeconfig.yml` (for kubectl bootstrap)
-  - `terraform_setup\kube\kubeconfig.yml` (for Terraform bootstrap)
+Place (or generate) your `kubeconfig.yml` in one of:
+- `kubectl_setup\kube\kubeconfig.yml` (kubectl bootstrap)
+- `terraform_setup\kube\kubeconfig.yml` (Terraform bootstrap)
 
 ## Bootstrapping Deployment
 
-Choose a bootstrap method:
+Choose a bootstrap path:
+- For **kubectl**, continue in [kubectl_setup](kubectl_setup).
+- For **Terraform**, continue in [terraform_setup](terraform_setup).
 
-- For **kubectl**, continue in the [kubectl_setup](kubectl_setup) folder.
-- For **Terraform**, continue in the [terraform_setup](terraform_setup) folder.
+> Argo CD may take several minutes to become fully ready. You can monitor progress via the [Argo CD Dashboard on localhost](app/readme.md#argo_cd_dashboard_on_localhost).
 
+For details about what is installed, see the [app](app) folder.
 > It takes some time from bootstrap deployment is done until Argo CD is ready. You can follow the status via the [Argo CD Dashboard on localhost](app/readme.md#argo_cd_dashboard_on_localhost).
 
 For further details about what is installed, please see the [app](app) folder.
