@@ -43,10 +43,6 @@ spec:
             - FoxIDs
           usernames: 
             - foxids
-        networkPolicy:
-          extraIngress:
-            - ports:
-                - port: 15008 # Support Istio Ambient on port 15008
   destination:
     name: in-cluster
     namespace: foxids
