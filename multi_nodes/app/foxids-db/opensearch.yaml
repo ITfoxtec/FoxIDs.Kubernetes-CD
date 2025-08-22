@@ -16,7 +16,6 @@ spec:
     targetRevision: 2.0.3
     helm:
       valuesObject:
-        global:
         master:
           replicaCount: 2
           persistence:
@@ -28,18 +27,21 @@ spec:
             limits:
               cpu: "750m"
               memory: "768Mi"
+          javaOpts: "-Xms512m -Xmx512m"
           metrics:
             enabled: true
         data: 
           replicaCount: 2
           persistence:
             size: 24Gi
+          resources:                # FIX: moved requests/limits here (were incorrectly under persistence)
             requests:
               cpu: "500m"
               memory: "1Gi"
             limits:
-              cpu: "750m"
+              cpu: "1000m"
               memory: "2Gi"
+          javaOpts: "-Xms1g -Xmx1g"  # Align heap to request to prevent swapping / OOM
           metrics:
             enabled: true
         coordinating: 
@@ -51,12 +53,11 @@ spec:
             limits:
               cpu: "750m"
               memory: "768Mi"
+          javaOpts: "-Xms512m -Xmx512m"
           metrics:
             enabled: true
         ingest: 
           replicaCount: 2
-        #  tls: true
-        #  selfSigned: true
           resources:
             requests:
               cpu: "500m"
@@ -64,6 +65,7 @@ spec:
             limits:
               cpu: "750m"
               memory: "768Mi"
+          javaOpts: "-Xms512m -Xmx512m"
           metrics:
             enabled: true
         dashboards:
