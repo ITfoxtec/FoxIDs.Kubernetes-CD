@@ -16,6 +16,14 @@ spec:
     targetRevision: 2.0.3
     helm:
       valuesObject:
+        sysctlImage:                 # Added: ensure vm.max_map_count & file limits set
+          enabled: true
+          command:
+            - /bin/bash
+            - -ec
+            - |
+              sysctl -w vm.max_map_count=262144
+              sysctl -w fs.file-max=65536
         master:
           replicaCount: 2
           persistence:
@@ -23,25 +31,25 @@ spec:
           resources:
             requests:
               cpu: "500m"
-              memory: "512Mi"
+              memory: "700Mi"   
             limits:
               cpu: "750m"
-              memory: "768Mi"
-          javaOpts: "-Xms512m -Xmx512m"
+              memory: "1Gi"          
+          javaOpts: "-Xms700m -Xmx700m"  
           metrics:
             enabled: true
         data: 
           replicaCount: 2
           persistence:
             size: 24Gi
-          resources:                # FIX: moved requests/limits here (were incorrectly under persistence)
+          resources:               
             requests:
               cpu: "500m"
               memory: "1Gi"
             limits:
               cpu: "1000m"
               memory: "2Gi"
-          javaOpts: "-Xms1g -Xmx1g"  # Align heap to request to prevent swapping / OOM
+          javaOpts: "-Xms1g -Xmx1g"
           metrics:
             enabled: true
         coordinating: 
@@ -49,11 +57,11 @@ spec:
           resources:
             requests:
               cpu: "500m"
-              memory: "512Mi"
+              memory: "700Mi"     
             limits:
               cpu: "750m"
-              memory: "768Mi"
-          javaOpts: "-Xms512m -Xmx512m"
+              memory: "1Gi"       
+          javaOpts: "-Xms700m -Xmx700m" 
           metrics:
             enabled: true
         ingest: 
@@ -61,11 +69,11 @@ spec:
           resources:
             requests:
               cpu: "500m"
-              memory: "512Mi"
+              memory: "700Mi"     
             limits:
               cpu: "750m"
-              memory: "768Mi"
-          javaOpts: "-Xms512m -Xmx512m"
+              memory: "1Gi"        
+          javaOpts: "-Xms700m -Xmx700m" 
           metrics:
             enabled: true
         dashboards:
