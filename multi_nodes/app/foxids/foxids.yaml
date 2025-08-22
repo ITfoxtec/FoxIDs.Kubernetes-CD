@@ -99,11 +99,11 @@ spec:
               value: "mongodb://foxids:$(MONGODB_PASSWORD)@mongodb-0.mongodb-headless.foxids.svc.cluster.local,mongodb-1.mongodb-headless.foxids.svc.cluster.local,mongodb-2.mongodb-headless.foxids.svc.cluster.local/?replicaSet=mongodb&authSource=FoxIDs"
           resources:
             requests:
-              cpu: 0.25
-              memory: 256Mi
+              cpu: "300m"
+              memory: "256Mi"
             limits:
-              cpu: 0.5
-              memory: 512Mi
+              cpu: "900m"
+              memory: "512Mi"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -183,11 +183,11 @@ spec:
               value: "mongodb://foxids:$(MONGODB_PASSWORD)@mongodb-0.mongodb-headless.foxids.svc.cluster.local,mongodb-1.mongodb-headless.foxids.svc.cluster.local,mongodb-2.mongodb-headless.foxids.svc.cluster.local/?replicaSet=mongodb&authSource=FoxIDs"
           resources:
             requests:
-              cpu: 0.25
-              memory: 256Mi
+              cpu: "300m"
+              memory: "256Mi"
             limits:
-              cpu: 0.5
-              memory: 512Mi
+              cpu: "600m"
+              memory: "512Mi"
 ---
 apiVersion: v1
 kind: Service

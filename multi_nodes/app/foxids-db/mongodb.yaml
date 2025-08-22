@@ -23,19 +23,15 @@ spec:
         replicaSetName: mongodb
         replicaCount: 3
         global: 
-          # --- OVHcloud specific storage class ---
-          #defaultStorageClass: csi-cinder-high-speed-gen2
-          #defaultStorageClass: csi-cinder-high-speed   
-          # --- End OVHcloud specific storage class ---
         persistence:
-          size: 16Gi  
+          size: 16Gi
         resources:
           requests:
-            cpu: 1
-            memory: 4Gi
+            cpu: "500m"
+            memory: "2Gi"
           limits:
-            cpu: 4
-            memory: 8Gi
+            cpu: "750m"
+            memory: "4Gi"
         metrics:
           enabled: true
         arbiter:

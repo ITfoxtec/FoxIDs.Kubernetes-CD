@@ -4,9 +4,9 @@ metadata:
   name: letsencrypt 
 spec:
   acme:   
-    # Production
+    # Production certificates
     #server: https://acme-v02.api.letsencrypt.org/directory 
-    # Staging
+    # Staging certificates (not trusted)
     server: https://acme-staging-v02.api.letsencrypt.org/directory 
     email: xxx@my-domain.com
     privateKeySecretRef:     

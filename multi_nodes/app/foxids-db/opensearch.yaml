@@ -17,79 +17,55 @@ spec:
     helm:
       valuesObject:
         global:
-          # OVHcloud-specific storage class overrides (uncomment one if required)
-          #defaultStorageClass: csi-cinder-high-speed-gen2
-          #defaultStorageClass: csi-cinder-high-speed
         master:
           replicaCount: 2
           persistence:
-            size: 22Gi
-          # resources:
-          #   limits:
-          #     cpu: "750m"
-          #     memory: "768Mi"
-          #   requests:
-          #     cpu: "500m"
-          #     memory: "512Mi"
+            size: 24Gi
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "750m"
+              memory: "768Mi"
           metrics:
             enabled: true
-          networkPolicy:
-            #enabled: false
-            extraIngress:
-              - ports:
-                  - port: 15008 # Support Istio Ambient on port 15008
         data: 
           replicaCount: 2
           persistence:
-            size: 23Gi
-          # resources:
-          #   limits:
-          #     cpu: "750m"
-          #     memory: "1536Mi"
-          #   requests:
-          #     cpu: "500m"
-          #     memory: "1024Mi"
+            size: 24Gi
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "750m"
+              memory: "2Gi"
           metrics:
             enabled: true
-          networkPolicy:
-            #enabled: false
-            extraIngress:
-              - ports:
-                  - port: 15008 # Support Istio Ambient on port 15008
         coordinating: 
           replicaCount: 2
-          # resources:
-          #   limits:
-          #     cpu: "750m"
-          #     memory: "768Mi"
-          #   requests:
-          #     cpu: "500m"
-          #     memory: "512Mi"
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "750m"
+              memory: "768Mi"
           metrics:
             enabled: true
-          networkPolicy:
-            #enabled: false
-            extraIngress:
-              - ports:
-                  - port: 15008 # Support Istio Ambient on port 15008
         ingest: 
           replicaCount: 2
         #  tls: true
         #  selfSigned: true
-          # resources:
-          #   limits:
-          #     cpu: "750m"
-          #     memory: "768Mi"
-          #   requests:
-          #     cpu: "500m"
-          #     memory: "512Mi"
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "750m"
+              memory: "768Mi"
           metrics:
             enabled: true
-          networkPolicy:
-            #enabled: false
-            extraIngress:
-              - ports:
-                  - port: 15008 # Support Istio Ambient on port 15008
         dashboards:
           enabled: true
           replicaCount: 1
@@ -106,18 +82,13 @@ spec:
               # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
             tls: true
             ingressClassName: nginx
-          # resources:
-          #   limits:
-          #     cpu: "750m"
-          #     memory: "768Mi"
-          #   requests:
-          #     cpu: "500m"
-          #     memory: "512Mi"
-          networkPolicy:
-            #enabled: false
-            extraIngress:
-              - ports:
-                  - port: 15008 # Support Istio Ambient on port 15008
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "768Mi"
         security:
           enabled: true
           existingSecret: opensearch-secret  # Must contain: opensearch-password
