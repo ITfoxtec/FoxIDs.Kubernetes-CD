@@ -97,6 +97,15 @@ spec:
                   key: mongodb-foxids-password
             - name: "Settings__MongoDb__ConnectionString"
               value: "mongodb://foxids:$(MONGODB_PASSWORD)@mongodb-0.mongodb-headless.foxids.svc.cluster.local,mongodb-1.mongodb-headless.foxids.svc.cluster.local,mongodb-2.mongodb-headless.foxids.svc.cluster.local/?replicaSet=mongodb&authSource=FoxIDs"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8800
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
           resources:
             requests:
               cpu: "300m"
@@ -181,6 +190,15 @@ spec:
                   key: mongodb-foxids-password
             - name: "Settings__MongoDb__ConnectionString"
               value: "mongodb://foxids:$(MONGODB_PASSWORD)@mongodb-0.mongodb-headless.foxids.svc.cluster.local,mongodb-1.mongodb-headless.foxids.svc.cluster.local,mongodb-2.mongodb-headless.foxids.svc.cluster.local/?replicaSet=mongodb&authSource=FoxIDs"
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8800
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 3
           resources:
             requests:
               cpu: "300m"
