@@ -83,6 +83,15 @@ Username: admin
 Password: terraform.tfvars -> argocd-admin-password
 ```
 
+### Access MongoDB on localhost
+
+Run:
+```
+kubectl port-forward svc/mongodb-headless -n foxids 27117:27017
+```
+
+Install MongoDB Compass or use the MongoDB shell to connect to the database.
+
 ### Common Issues
 
 - Argo CD app OutOfSync: inspect diff, ensure branch / path correct.
