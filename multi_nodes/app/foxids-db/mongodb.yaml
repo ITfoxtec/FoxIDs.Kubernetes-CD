@@ -1,6 +1,6 @@
+# https://artifacthub.io/packages/helm/bitnami/mongodb
 # https://medium.com/@shashwatmahar12/kubernetes-install-mongodb-from-helm-cron-job-to-backup-mongodb-replica-set-5fd8df51fe93  
 # https://medium.com/@blackhorseya/deploying-mongodb-to-kubernetes-with-bitnamis-helm-chart-9c4f11eca24a  
-# https://artifacthub.io/packages/helm/bitnami/mongodb
 # https://github.com/bitnami/charts/blob/main/bitnami/mongodb/values.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -16,7 +16,7 @@ spec:
   source:
     repoURL: 'registry-1.docker.io/bitnamicharts'
     chart: mongodb
-    targetRevision: 16.5.14
+    targetRevision: 16.5.45
     helm:
       valuesObject:
         architecture: replicaset
