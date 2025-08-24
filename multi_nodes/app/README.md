@@ -28,10 +28,10 @@ Supporting / internal Kubernetes objects:
 Search and replace the placeholder domain per the [parent README instructions](../).
 
 Suggested hostnames:
-- FoxIDs: `id-test-multi-nodes.foxids.com`
-- FoxIDs Control: `control-test-multi-nodes.foxids.com`
-- Argo CD (optional): `argocd-test-multi-nodes.foxids.com`
-- OpenSearch Dashboards (optional): `opensearch-test-multi-nodes.foxids.com`
+- FoxIDs: `id.test-multi-nodes.foxids.com`
+- FoxIDs Control: `control.test-multi-nodes.foxids.com`
+- Argo CD (optional): `argocd.test-multi-nodes.foxids.com`
+- OpenSearch Dashboards (optional): `opensearch.test-multi-nodes.foxids.com`
 
 > Initially, connect to the [Argo CD Dashboard on localhost](#argo_cd_dashboard_on_localhost) to monitor deployment progress.
 

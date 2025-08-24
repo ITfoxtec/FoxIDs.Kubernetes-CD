@@ -16,12 +16,12 @@ The deployment is bootstrapped using either `kubectl` or `Terraform`, followed b
 ## Prerequisites
 
 1. Clone this repository.  
-2. Replace all occurrences of the placeholder base domain `-test-multi-nodes.foxids.com` with your real domain (e.g. `.my-company.com`).  
+2. Replace all occurrences of the placeholder base domain `.test-multi-nodes.foxids.com` with your real domain (e.g. `.my-company.com`).  
    Default hostnames (update as needed):
-   - FoxIDs: `id-test-multi-nodes.foxids.com`
-   - FoxIDs Control: `control-test-multi-nodes.foxids.com`
-   - Argo CD (optional): `argocd-test-multi-nodes.foxids.com`
-   - OpenSearch Dashboards (optional): `opensearch-test-multi-nodes.foxids.com`
+   - FoxIDs: `id.test-multi-nodes.foxids.com`
+   - FoxIDs Control: `control.test-multi-nodes.foxids.com`
+   - Argo CD (optional): `argocd.test-multi-nodes.foxids.com`
+   - OpenSearch Dashboards (optional): `opensearch.test-multi-nodes.foxids.com`
 3. Replace placeholder emails `xxx@my-domain.com` with valid addresses.
 4. When tested change to use production certificates (trusted certificates). Edit [letsencrypt-issuer.yaml](app/cluster-issuer/letsencrypt-issuer.yaml) to switch the Let's Encrypt ClusterIssuer from staging certificates (not trusted) to production certificates (update the ACME server URL) and be mindful of rate limits of production certificates.
 5. Configure DNS records for all required hostnames after (or while) obtaining the Ingress controller public IP. Do this early so Let's Encrypt can validate domains for certificate issuance.

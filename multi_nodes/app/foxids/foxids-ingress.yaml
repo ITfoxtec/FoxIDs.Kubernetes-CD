@@ -15,12 +15,12 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-      - id-test-multi-nodes.foxids.com
-      - control-test-multi-nodes.foxids.com 
+      - id.test-multi-nodes.foxids.com
+      - control.test-multi-nodes.foxids.com 
       secretName: foxids-tls
     
   rules:
-  - host: control-test-multi-nodes.foxids.com 
+  - host: control.test-multi-nodes.foxids.com 
     http:
       paths:
       - path: /
@@ -30,7 +30,7 @@ spec:
             name: foxids-control
             port:
               number: 8800
-  - host: id-test-multi-nodes.foxids.com
+  - host: id.test-multi-nodes.foxids.com
     http:
       paths:
       - path: /
