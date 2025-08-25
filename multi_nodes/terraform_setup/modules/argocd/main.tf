@@ -25,12 +25,16 @@ resource "helm_release" "argocd" {
   ]
 }
 
-resource "kubernetes_secret" "argocd-secret" {
+resource "kubernetes_secret" "argocd-repo-secret" {
   count = var.git-repo-username != "" ? 1 : 0
 
   metadata {
-    name = "argocd-secret"
+    name = "argocd-repo-secret"
     namespace = "argocd"
+
+    labels = {
+      "argocd.argoproj.io/secret-type": "repo-creds"
+    }
   }
 
   data = {
@@ -50,5 +54,5 @@ resource "kubectl_manifest" "argocd-meta-application" {
       url = var.git-repo-url
     })
 
-  depends_on = [ kubernetes_secret.argocd-secret ]  
+  depends_on = [ kubernetes_secret.argocd-repo-secret ]  
 }
