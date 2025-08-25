@@ -256,4 +256,11 @@ spec:
                     "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"kubectl.kubernetes.io/restartedAt\":\"$(date +%Y-%m-%dT%H:%M:%S)\"}}}}}"
                   kubectl patch deployment foxids-control-deployment -n $(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace) -p \
                     "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"kubectl.kubernetes.io/restartedAt\":\"$(date +%Y-%m-%dT%H:%M:%S)\"}}}}}"
+              resources:
+                requests:
+                  cpu: 20m
+                  memory: 32Mi
+                limits:
+                  cpu: 100m
+                  memory: 64Mi
           serviceAccountName: default
