@@ -30,7 +30,7 @@ spec:
           config:
             use-proxy-protocol: true            # Required because PROXY protocol enabled above.
             real-ip-header: "proxy_protocol"    # Align real IP extraction with PROXY protocol.
-            # proxy-real-ip-cidr: "10.1.0.0/16"   # Adjust to your internal network range.
+            proxy-real-ip-cidr: "10.1.0.0/16"   # Adjust to your internal network range.
   destination:
     name: in-cluster
     namespace: ingress-nginx
