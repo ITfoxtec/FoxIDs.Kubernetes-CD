@@ -16,12 +16,14 @@ spec:
     spec:
       containers:
         - name: foxids
-          #image: foxids/foxids:2.0.6
-          image: foxids/foxids:latest-test
+          image: foxids/foxids:2.0.6
+          #image: foxids/foxids:latest-test
           imagePullPolicy: Always
           ports:
             - containerPort: 8800
           env:
+            - name: "Settings__UseHttp"
+              value: "true"
             - name: "ASPNETCORE_URLS"
               value: "http://+:8800"
             - name: "Settings__UseHttp"
@@ -132,8 +134,8 @@ spec:
     spec:
       containers:
         - name: foxids-control
-          #image: foxids/foxids-control:2.0.6  
-          image: foxids/foxids-control:latest-test
+          image: foxids/foxids-control:2.0.6  
+          #image: foxids/foxids-control:latest-test
           imagePullPolicy: Always
           ports:
             - containerPort: 8800
