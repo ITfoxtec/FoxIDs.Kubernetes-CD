@@ -87,7 +87,7 @@ spec:
                   name: opensearch-secret
                   key: opensearch-password
             - name: "Settings__OpenSearch__Nodes__0"
-              value: "https://admin:$(OPENSEARCH_PASSWORD)@opensearch.foxids.svc.cluster.local:9200"
+              value: "https://admin:$(OPENSEARCH_PASSWORD)@foxids-opensearch-master.foxids.svc.cluster.local:9200"
             - name: "Settings__OpenSearch__AllowInsecureCertificates" 
               value: "true" # Accept self-signed certificate (disable after adding trusted certs)
             - name: "Settings__OpenSearch__LogLifetime"
@@ -180,7 +180,7 @@ spec:
                   name: opensearch-secret
                   key: opensearch-password
             - name: "Settings__OpenSearch__Nodes__0"
-              value: "https://admin:$(OPENSEARCH_PASSWORD)@opensearch.foxids.svc.cluster.local:9200"
+              value: "https://admin:$(OPENSEARCH_PASSWORD)@foxids-opensearch-master.foxids.svc.cluster.local:9200"
             - name: "Settings__OpenSearch__AllowInsecureCertificates" 
               value: "true" # Accept self-signed certificate (replace when using trusted certs)
             - name: "Settings__OpenSearch__LogLifetime"
