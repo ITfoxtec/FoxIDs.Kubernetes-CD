@@ -11,10 +11,6 @@ variable opensearch-password {
   type        = string
   sensitive   = true
 }
-variable opensearch-dashboards-password {
-  type        = string
-  sensitive   = true
-}
 
 variable smtp-username {
   type        = string

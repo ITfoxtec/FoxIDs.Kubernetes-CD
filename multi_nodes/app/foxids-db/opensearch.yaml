@@ -15,6 +15,7 @@ spec:
     chart: opensearch
     targetRevision: 3.2.1
     helm:
+      releaseName: foxids-opensearch
       valuesObject:
         clusterName: foxids-opensearch
         nodeGroup: master
@@ -42,16 +43,7 @@ spec:
                 name: opensearch-secret
                 key: opensearch-password
         ingress:
-          enabled: true
-          ingressClassName: nginx
-          annotations:
-            cert-manager.io/cluster-issuer: "letsencrypt"
-          hosts:
-            - opensearch.test-multi-nodes.foxids.com
-          tls:
-            - secretName: opensearch-foxids-tls
-              hosts:
-                - opensearch.test-multi-nodes.foxids.com
+          enabled: false
   destination:
     name: in-cluster
     namespace: foxids

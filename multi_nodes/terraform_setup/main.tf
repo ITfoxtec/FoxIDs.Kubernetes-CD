@@ -3,7 +3,6 @@ module "foxids" {
   mongodb-root-password          = var.mongodb-root-password
   mongodb-foxids-password        = var.mongodb-foxids-password
   opensearch-password            = var.opensearch-password
-  opensearch-dashboards-password = var.opensearch-dashboards-password
   smtp-username                  = var.smtp-username
   smtp-password                  = var.smtp-password
   sms-secret                     = var.sms-secret
