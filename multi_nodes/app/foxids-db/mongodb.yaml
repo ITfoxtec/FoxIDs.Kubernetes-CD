@@ -13,8 +13,6 @@ spec:
     repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
     targetRevision: main
     path: multi_nodes/app/foxids-db/mongodb
-    directory:
-      recurse: true
   destination:
     name: in-cluster
     namespace: foxids
