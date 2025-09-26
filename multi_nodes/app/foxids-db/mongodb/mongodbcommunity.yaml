@@ -65,16 +65,16 @@ spec:
             - name: mongod
               resources:
                 requests:
-                  cpu: "500m"
+                  cpu: "300m"
                   memory: "2Gi"
                 limits:
-                  cpu: "750m"
+                  cpu: "600m"
                   memory: "4Gi"
             - name: mongodb-agent
               resources:
                 requests:
-                  cpu: "200m"
+                  cpu: "150m"
                   memory: "256Mi"
                 limits:
-                  cpu: "500m"
-                  memory: "512Mi"
+                  cpu: "300m"
+                  memory: "384Mi"

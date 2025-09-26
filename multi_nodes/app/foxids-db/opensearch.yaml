@@ -22,11 +22,11 @@ spec:
             size: 24Gi
           resources:
             requests:
-              cpu: "500m"
-              memory: "1024Mi"   
+              cpu: "250m"
+              memory: "768Mi"   
             limits:
-              cpu: "750m"
-              memory: "1536Mi"          
+              cpu: "500m"
+              memory: "1024Mi"          
           metrics:
             enabled: true
         data: 
@@ -35,33 +35,33 @@ spec:
             size: 24Gi
           resources:               
             requests:
+              cpu: "250m"
+              memory: "768Mi"   
+            limits:
               cpu: "500m"
               memory: "1024Mi"   
-            limits:
-              cpu: "750m"
-              memory: "1536Mi"   
           metrics:
             enabled: true
         coordinating: 
           replicaCount: 2
           resources:
             requests:
+              cpu: "250m"
+              memory: "768Mi"   
+            limits:
               cpu: "500m"
               memory: "1024Mi"   
-            limits:
-              cpu: "750m"
-              memory: "1536Mi"   
           metrics:
             enabled: true
         ingest: 
           replicaCount: 2
           resources:
             requests:
+              cpu: "250m"
+              memory: "768Mi"   
+            limits:
               cpu: "500m"
               memory: "1024Mi"   
-            limits:
-              cpu: "750m"
-              memory: "1536Mi"   
           metrics:
             enabled: true
         dashboards:
@@ -77,11 +77,11 @@ spec:
             ingressClassName: nginx
           resources:
             requests:
-              cpu: "500m"
-              memory: "512Mi"
+              cpu: "150m"
+              memory: "384Mi"
             limits:
-              cpu: "750m"
-              memory: "768Mi"
+              cpu: "300m"
+              memory: "512Mi"
         security:
           enabled: true
           existingSecret: opensearch-secret  # Must contain: opensearch-password
