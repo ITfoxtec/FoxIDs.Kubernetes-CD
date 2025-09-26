@@ -1,7 +1,6 @@
 module "foxids" {
   source                         = "./modules/foxids/"
   mongodb-root-password          = var.mongodb-root-password
-  mongodb-replica-set-key        = var.mongodb-replica-set-key
   mongodb-foxids-password        = var.mongodb-foxids-password
   opensearch-password            = var.opensearch-password
   opensearch-dashboards-password = var.opensearch-dashboards-password
