@@ -12,6 +12,11 @@ variable opensearch-password {
   sensitive   = true
 }
 
+variable opensearch-dashmord-connect-password {
+  type        = string
+  sensitive   = true
+}
+
 variable smtp-username {
   type        = string
   sensitive   = true

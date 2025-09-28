@@ -30,6 +30,11 @@ variable opensearch-password {
   type        = string
   sensitive   = true
 }
+variable opensearch-dashmord-connect-password {
+  type        = string
+  sensitive   = true
+}
+
 variable smtp-username {
   type        = string
   sensitive   = true
@@ -46,5 +51,3 @@ variable sms-secret {
   sensitive   = true
   default     = ""
 }
-
-
