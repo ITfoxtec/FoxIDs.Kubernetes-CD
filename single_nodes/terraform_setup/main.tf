@@ -1,13 +1,13 @@
 module "foxids" {
-  source                         = "./modules/foxids/"
-  mongodb-root-password          = var.mongodb-root-password
-  mongodb-replica-set-key        = var.mongodb-replica-set-key
-  mongodb-foxids-password        = var.mongodb-foxids-password
-  opensearch-password            = var.opensearch-password
-  opensearch-dashboards-password = var.opensearch-dashboards-password
-  smtp-username                  = var.smtp-username
-  smtp-password                  = var.smtp-password
-  sms-secret                     = var.sms-secret
+  source                               = "./modules/foxids/"
+  mongodb-root-password                = var.mongodb-root-password
+  mongodb-replica-set-key              = var.mongodb-replica-set-key
+  mongodb-foxids-password              = var.mongodb-foxids-password
+  opensearch-admin-password            = var.opensearch-admin-password
+  opensearch-dashbord-connect-password = var.opensearch-dashbord-connect-password
+  smtp-username                        = var.smtp-username
+  smtp-password                        = var.smtp-password
+  sms-secret                           = var.sms-secret
 }
 
 module "argocd" {

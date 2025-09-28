@@ -41,7 +41,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: opensearch-secret
-                key: opensearch-password
+                key: opensearch-admin-password
         sysctlVmMaxMapCount: 262144
         sysctlInit:
           enabled: true

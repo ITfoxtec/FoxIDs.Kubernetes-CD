@@ -21,12 +21,12 @@ spec:
         opensearchHosts: "https://foxids-opensearch-master.foxids.svc.cluster.local:9200"
         extraEnvs:
           - name: OPENSEARCH_USERNAME
-            value: admin
+            value: connect-admin
           - name: OPENSEARCH_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: opensearch-secret
-                key: opensearch-dashmord-connect-password
+                key: opensearch-dashbord-connect-password
         config:
           opensearch_dashboards.yml: |
             server:

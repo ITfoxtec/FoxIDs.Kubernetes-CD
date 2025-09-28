@@ -26,11 +26,11 @@ variable mongodb-foxids-password {
   sensitive   = true
 }
 
-variable opensearch-password {
+variable opensearch-admin-password {
   type        = string
   sensitive   = true
 }
-variable opensearch-dashmord-connect-password {
+variable opensearch-dashbord-connect-password {
   type        = string
   sensitive   = true
 }

@@ -85,7 +85,7 @@ spec:
               valueFrom: 
                 secretKeyRef:
                   name: opensearch-secret
-                  key: opensearch-password
+                  key: opensearch-admin-password
             - name: "Settings__OpenSearch__Nodes__0"
               value: "https://admin:$(OPENSEARCH_PASSWORD)@opensearch.foxids.svc.cluster.local:9200"
             - name: "Settings__OpenSearch__AllowInsecureCertificates" 
@@ -169,7 +169,7 @@ spec:
               valueFrom: 
                 secretKeyRef:
                   name: opensearch-secret
-                  key: opensearch-password
+                  key: opensearch-admin-password
             - name: "Settings__OpenSearch__Nodes__0"
               value: "https://admin:$(OPENSEARCH_PASSWORD)@opensearch.foxids.svc.cluster.local:9200"
             - name: "Settings__OpenSearch__AllowInsecureCertificates" 
