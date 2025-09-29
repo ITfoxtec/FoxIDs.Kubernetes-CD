@@ -28,7 +28,7 @@ resource "kubernetes_secret" "opensearch-secret" {
 
   data = {
     opensearch-admin-password = var.opensearch-admin-password
-    opensearch-dashbord-connect-password = var.opensearch-dashbord-connect-password
+    opensearch-dashboard-connect-password = var.opensearch-dashboard-connect-password
   }
 
   type = "Opaque"

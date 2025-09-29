@@ -15,7 +15,7 @@ variable opensearch-admin-password {
   type        = string
   sensitive   = true
 }
-variable opensearch-dashbord-connect-password {
+variable opensearch-dashboard-connect-password {
   type        = string
   sensitive   = true
 }
