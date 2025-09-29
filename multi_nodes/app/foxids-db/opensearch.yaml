@@ -5,6 +5,7 @@ metadata:
   name: opensearch
   namespace: argocd
   annotations:
+    argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/sync-wave: "10"
   finalizers:
     - resources-finalizer.argocd.argoproj.io

@@ -4,7 +4,7 @@ metadata:
   name: foxids
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "11"
+    argocd.argoproj.io/hook: PostSync
 spec:
   project: default
   source:
