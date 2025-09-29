@@ -42,9 +42,6 @@ mongodb-foxids-password        = "my-foxids-db-password"
 
 # OpenSearch admin user password
 opensearch-password            = "my-admin-password"
-# Password used by Dashboards connecting to OpenSearch
-opensearch-dashdoard-connect-password = "my-dashdoard-connect-password"
-# Internal OpenSearch password for the Dashboard
 
 # Optionally, SMTP username and password
 smtp-username                  = "xxx"
