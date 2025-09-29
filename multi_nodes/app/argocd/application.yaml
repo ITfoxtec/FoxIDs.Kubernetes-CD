@@ -4,7 +4,6 @@ metadata:
   name: argocd-app
   namespace: argocd
   annotations:
-    argocd.argoproj.io/hook: "PreSync"
     argocd.argoproj.io/sync-wave: "3"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
