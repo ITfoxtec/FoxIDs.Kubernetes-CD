@@ -1,0 +1,26 @@
+# https://github.com/mongodb/mongodb-kubernetes/
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongodb
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    targetRevision: main
+    path: single-instance/app/foxids-db/mongodb
+  destination:
+    name: in-cluster
+    namespace: foxids
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  sources:
+  - path: single-instance/app/argocd
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    targetRevision: main
+    directory:
+      include: application.yaml
+
+  - path: single-instance/app/cert-manager
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    targetRevision: main
+  - path: single-instance/app/cluster-issuer
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    targetRevision: main
+    directory:
+      include: application.yaml
+  - path: single-instance/app/ingress
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    targetRevision: main
+
+  - path: single-instance/app/foxids-db
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    targetRevision: main
+  - path: single-instance/app/foxids
+    repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git
+    targetRevision: main
+    directory:
+     include: application.yaml
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
