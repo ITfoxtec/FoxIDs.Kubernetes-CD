@@ -12,9 +12,7 @@ resource "kubernetes_secret" "mongodb-secret" {
 
   data = {
     mongodb-root-password = var.mongodb-root-password
-    mongodb-replica-set-key = var.mongodb-replica-set-key
     mongodb-foxids-password = var.mongodb-foxids-password
-    mongodb-passwords = "${var.mongodb-foxids-password}"
   }
 
   type = "Opaque"
@@ -30,7 +28,6 @@ resource "kubernetes_secret" "opensearch-secret" {
 
   data = {
     opensearch-admin-password = var.opensearch-admin-password
-    opensearch-dashboard-connect-password = var.opensearch-dashboard-connect-password
   }
 
   type = "Opaque"

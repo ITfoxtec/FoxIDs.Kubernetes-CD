@@ -21,20 +21,12 @@ variable mongodb-root-password {
   type        = string
   sensitive   = true
 }
-variable mongodb-replica-set-key {
-  type        = string
-  sensitive   = true
-}
 variable mongodb-foxids-password {
   type        = string
   sensitive   = true
 }
 
 variable opensearch-admin-password {
-  type        = string
-  sensitive   = true
-}
-variable opensearch-dashboard-connect-password {
   type        = string
   sensitive   = true
 }
