@@ -11,7 +11,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  members: 3
+  members: 1
   type: ReplicaSet
   version: "7.0.12"
   security:
@@ -67,11 +67,11 @@ spec:
             - name: mongod
               resources:
                 requests:
-                  cpu: "300m"
-                  memory: "2Gi"
+                  cpu: "250m"
+                  memory: "512Mi"
                 limits:
-                  cpu: "600m"
-                  memory: "4Gi"
+                  cpu: "500m"
+                  memory: "1024Mi"
             - name: mongodb-agent
               resources:
                 requests:

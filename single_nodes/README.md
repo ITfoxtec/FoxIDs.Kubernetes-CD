@@ -1,32 +1,40 @@
-# Deploy FoxIDs
+# Deploy FoxIDs (Single-Node Setup)
 
-Deploy FoxIDs as a small installation with single notes.
+Spin up FoxIDs on a compact Kubernetes footprint that prioritises simplicity over high availability.
 
-- FoxIDs site (single node)
-- FoxIDs Control site (single node)
-- MongoDB (single node)
-- OpenSearch (single node)
+- FoxIDs site (single replica)
+- FoxIDs Control site (single replica)
+- MongoDB (single-pod StatefulSet)
+- OpenSearch (single-pod StatefulSet)
+- OpenSearch Dashboards (optional, single replica)
 
-The deployment is bootstrapped with either `kubectl` or `Terraform` and then the Argo CD do GitOps deployment.
+Minimum recommended cluster capacity: one worker node with 4 vCPUs, 8 GB RAM, and 80 GiB SSD storage.
 
-## Before you start
+Manifests live in the [app](app) directory and are continuously reconciled by Argo CD after the initial bootstrap (via kubectl or Terraform).
 
-1) Clone this git repository
+## Before You Start
 
-2) Search `test-single-nodes.foxids.com` and replace the domain with your domain.
+1. Clone this repository.
+2. Replace every occurrence of the placeholder base domain `test-single-nodes.foxids.com` with your real domain (for example `my-company.com`).
+   - FoxIDs: `id.test-single-nodes.foxids.com`
+   - FoxIDs Control: `control.test-single-nodes.foxids.com`
+   - Argo CD (optional): `argocd.test-single-nodes.foxids.com`
+   - OpenSearch Dashboards (optional): `opensearch.test-single-nodes.foxids.com`
+3. Update the placeholder contact emails (`xxx@my-domain.com`).
+4. Decide whether you want to bootstrap with kubectl or Terraform (both options are provided).
 
-3) Search `xxx@my-domain.com` and replace the email with your appropriated emails.
+## Accessing the Kubernetes Cluster
 
-# Access to Kubernetes cluster
+Supply a kubeconfig before running any bootstrap commands.
 
-Configure access to you Kubernetes cluster.
+- For kubectl bootstrap: place it at `kubectl_setup/.kube/kubeconfig.yml`.
+- For Terraform bootstrap: place it at `terraform_setup/.kube/kubeconfig.yml`.
 
-Place your clusters `kubeconfig.yml` file in: `.kubectl_setup\kube\kubeconfig.yml` or `.terraform_setup\kube\kubeconfig.yml` depending on which bootstrap method you choose.
+## Bootstrap Deployment
 
-## Bootstrap deployment
+Pick one bootstrap path and follow the README in that folder:
 
-Bootstrap deployment with either `kubectl` or `Terraform`.
+- [`kubectl_setup`](kubectl_setup/README.md) - apply the manifests directly with kubectl.
+- [`terraform_setup`](terraform_setup/README.md) - let Terraform provision Argo CD, namespaces, and secrets, then hand off to GitOps.
 
-For `kubectl` continue in the **kubectl_setup** folder.
-
-For `Terraform` continue in the **terraform_setup** folder.
+Once Argo CD is running you can monitor progress by port-forwarding the Argo CD server and signing in with the admin password defined in `terraform.tfvars` (or the secret you create during kubectl bootstrap).

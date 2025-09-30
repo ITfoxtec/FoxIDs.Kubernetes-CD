@@ -42,18 +42,18 @@ spec:
                 verificationMode: none
         resources:
           requests:
-            cpu: "150m"
-            memory: "384Mi"
+            cpu: "100m"
+            memory: "256Mi"
           limits:
-            cpu: "300m"
-            memory: "512Mi"
+            cpu: "200m"
+            memory: "384Mi"
         ingress:
           enabled: true
           ingressClassName: nginx
           annotations:
             cert-manager.io/cluster-issuer: "letsencrypt"
           hosts:
-            - host: opensearch.test-multi-nodes.foxids.com
+            - host: opensearch.test-single-nodes.foxids.com
               paths:
                 - path: /
                   backend:
@@ -61,7 +61,7 @@ spec:
           tls:
             - secretName: opensearch-foxids-tls
               hosts:
-                - opensearch.test-multi-nodes.foxids.com
+                - opensearch.test-single-nodes.foxids.com
   destination:
     name: in-cluster
     namespace: foxids

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: foxids
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: foxids
@@ -87,7 +87,7 @@ spec:
                   name: opensearch-secret
                   key: opensearch-admin-password
             - name: "Settings__OpenSearch__Nodes__0"
-              value: "https://admin:$(OPENSEARCH_PASSWORD)@opensearch.foxids.svc.cluster.local:9200"
+              value: "https://admin:$(OPENSEARCH_PASSWORD)@foxids-opensearch-master.foxids.svc.cluster.local:9200"
             - name: "Settings__OpenSearch__AllowInsecureCertificates" 
               value: "true" # Accept self-signed certificate
             - name: "Settings__OpenSearch__LogLifetime"
@@ -98,7 +98,7 @@ spec:
                   name: mongodb-secret
                   key: mongodb-foxids-password
             - name: "Settings__MongoDb__ConnectionString"
-              value: "mongodb://foxids:$(MONGODB_PASSWORD)@mongodb-0.mongodb-headless.foxids.svc.cluster.local,mongodb-1.mongodb-headless.foxids.svc.cluster.local,mongodb-2.mongodb-headless.foxids.svc.cluster.local/?replicaSet=mongodb&authSource=FoxIDs"
+              value: "mongodb://foxids:$(MONGODB_PASSWORD)@mongodb-0.mongodb-headless.foxids.svc.cluster.local/?replicaSet=mongodb&authSource=FoxIDs"
           resources:
             requests:
               cpu: 0.25
@@ -114,7 +114,7 @@ metadata:
   labels:
     app: foxids-control
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: foxids-control
@@ -171,7 +171,7 @@ spec:
                   name: opensearch-secret
                   key: opensearch-admin-password
             - name: "Settings__OpenSearch__Nodes__0"
-              value: "https://admin:$(OPENSEARCH_PASSWORD)@opensearch.foxids.svc.cluster.local:9200"
+              value: "https://admin:$(OPENSEARCH_PASSWORD)@foxids-opensearch-master.foxids.svc.cluster.local:9200"
             - name: "Settings__OpenSearch__AllowInsecureCertificates" 
               value: "true" # Accept self-signed certificate
             - name: "Settings__OpenSearch__LogLifetime"
@@ -182,7 +182,7 @@ spec:
                   name: mongodb-secret
                   key: mongodb-foxids-password
             - name: "Settings__MongoDb__ConnectionString"
-              value: "mongodb://foxids:$(MONGODB_PASSWORD)@mongodb-0.mongodb-headless.foxids.svc.cluster.local,mongodb-1.mongodb-headless.foxids.svc.cluster.local,mongodb-2.mongodb-headless.foxids.svc.cluster.local/?replicaSet=mongodb&authSource=FoxIDs"
+              value: "mongodb://foxids:$(MONGODB_PASSWORD)@mongodb-0.mongodb-headless.foxids.svc.cluster.local/?replicaSet=mongodb&authSource=FoxIDs"
           resources:
             requests:
               cpu: 0.25

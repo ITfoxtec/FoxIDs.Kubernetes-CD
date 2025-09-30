@@ -1,4 +1,6 @@
+# https://github.com/opensearch-project/helm-charts
 # https://github.com/opensearch-project/helm-charts/tree/main/charts/opensearch
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
