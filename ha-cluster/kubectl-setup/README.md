@@ -23,7 +23,7 @@ Bootstrap the FoxIDs HA-cluster stack with plain `kubectl` + `kustomize`.
 
 ## Apply the manifests
 ```powershell
-kubectl apply -k ha-cluster/kubectl_setup
+kubectl apply -k ha-cluster/kubectl-setup
 ```
 
 Verify the rollout:
@@ -37,12 +37,13 @@ After the Argo CD controllers start, the `meta-application` will sync every mani
 ## Cleanup
 To remove everything created by this kustomization:
 ```powershell
-kubectl delete -k ha-cluster/kubectl_setup
+kubectl delete -k ha-cluster/kubectl-setup
 ```
 
 ## Notes
 - The Argo CD upstream bundle referenced in `argocd/kustomization.yaml` is pinned to `v2.11.0`. Update the URL when upgrading Helm chart versions in the Terraform setup.
 - Secrets are stored in plaintext inside the repository by default. Prefer copying this folder and committing your real credentials to a private repo, or template the files through your secret management process before running `kubectl apply -k`.
+
 
 
 

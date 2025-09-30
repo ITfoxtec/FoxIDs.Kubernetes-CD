@@ -55,7 +55,7 @@ sms-secret                    = "xxx"
 Open PowerShell and change directory:
 
 ```
-cd C:\my-path\FoxIDs.Kubernetes-CD\single-instance\terraform_setup
+cd C:\my-path\FoxIDs.Kubernetes-CD\single-instance\terraform-setup
 ```
 
 Add Terraform to the current session PATH if needed:
@@ -91,6 +91,7 @@ To tear down every resource created by this module:
 ```
 terraform destroy
 ```
+
 
 
 

@@ -56,7 +56,7 @@ sms-secret                     = "xxx"
 
 Open PowerShell and navigate to this folder e.g.
 ```
-cd C:\my-path\FoxIDs.Kubernetes-CD\ha-cluster\terraform_setup
+cd C:\my-path\FoxIDs.Kubernetes-CD\ha-cluster\terraform-setup
 ```
 
 In PowerShell add a path to terraform.
@@ -83,6 +83,7 @@ Destroy - OPTIONAL cleanup
 ```
 terraform destroy
 ```
+
 
 
 

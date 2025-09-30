@@ -21,7 +21,7 @@ Use this folder to bootstrap the FoxIDs single-instance stack with `kubectl`.
 From the repository root run:
 
 ```
-kubectl apply -k single-instance/kubectl_setup
+kubectl apply -k single-instance/kubectl-setup
 ```
 
 Monitor progress:
@@ -44,10 +44,11 @@ Log on at https://localhost:3443 and ensure every application sourced from `sing
 Remove the stack when finished testing:
 
 ```
-kubectl delete -k single-instance/kubectl_setup
+kubectl delete -k single-instance/kubectl-setup
 ```
 
 > Need higher availability later? Switch the Argo CD meta application back to `ha-cluster/app` to reconcile the HA-cluster manifests instead.
+
 
 
 

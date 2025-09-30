@@ -104,13 +104,15 @@ Install MongoDB Compass or use the MongoDB shell to connect to the database.
 Path to kubernetes config
 
 ```
-$env:KUBECONFIG="..\kubectl_setup\.kube\kubeconfig.yml"
+$env:KUBECONFIG="..\kubectl-setup\.kube\kubeconfig.yml"
 ```
 or 
 ```
-$env:KUBECONFIG="..\terraform_setup\.kube\kubeconfig.yml"
+$env:KUBECONFIG="..\terraform-setup\.kube\kubeconfig.yml"
 ```
 depending on which bootstrap method you choose.
+
+
 
 
 

@@ -29,14 +29,14 @@ The deployment is bootstrapped using either `kubectl` or `Terraform`, followed b
 ## Accessing the Kubernetes Cluster
 
 Place (or generate) your `kubeconfig.yml` in one of:
-- `kubectl_setup\kube\kubeconfig.yml` (kubectl bootstrap)
-- `terraform_setup\kube\kubeconfig.yml` (Terraform bootstrap)
+- `kubectl-setup\kube\kubeconfig.yml` (kubectl bootstrap)
+- `terraform-setup\kube\kubeconfig.yml` (Terraform bootstrap)
 
 ## Bootstrapping Deployment
 
 Choose a bootstrap path:
-- For **kubectl**, continue in [kubectl_setup](kubectl_setup).
-- For **Terraform**, continue in [terraform_setup](terraform_setup).
+- For **kubectl**, continue in [kubectl-setup](kubectl-setup).
+- For **Terraform**, continue in [terraform-setup](terraform-setup).
 
 > Argo CD may take several minutes to become fully ready. You can monitor progress via the [Argo CD Dashboard on localhost](app/readme.md#argo_cd_dashboard_on_localhost).
 
@@ -44,6 +44,8 @@ For details about what is installed, see the [app](app) folder.
 > It takes some time from bootstrap deployment is done until Argo CD is ready. You can follow the status via the [Argo CD Dashboard on localhost](app/readme.md#argo_cd_dashboard_on_localhost).
 
 For further details about what is installed, please see the [app](app) folder.
+
+
 
 
 

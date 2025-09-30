@@ -27,16 +27,18 @@ Manifests live in the [app](app) directory and are continuously reconciled by Ar
 
 Supply a kubeconfig before running any bootstrap commands.
 
-- For kubectl bootstrap: place it at `kubectl_setup/.kube/kubeconfig.yml`.
-- For Terraform bootstrap: place it at `terraform_setup/.kube/kubeconfig.yml`.
+- For kubectl bootstrap: place it at `kubectl-setup/.kube/kubeconfig.yml`.
+- For Terraform bootstrap: place it at `terraform-setup/.kube/kubeconfig.yml`.
 
 ## Bootstrap Deployment
 
 Pick one bootstrap path and follow the README in that folder:
 
-- [`kubectl_setup`](kubectl_setup/README.md) - apply the manifests directly with kubectl.
-- [`terraform_setup`](terraform_setup/README.md) - let Terraform provision Argo CD, namespaces, and secrets, then hand off to GitOps.
+- [`kubectl-setup`](kubectl-setup/README.md) - apply the manifests directly with kubectl.
+- [`terraform-setup`](terraform-setup/README.md) - let Terraform provision Argo CD, namespaces, and secrets, then hand off to GitOps.
 
 Once Argo CD is running you can monitor progress by port-forwarding the Argo CD server and signing in with the admin password defined in `terraform.tfvars` (or the secret you create during kubectl bootstrap).
+
+
 
 
