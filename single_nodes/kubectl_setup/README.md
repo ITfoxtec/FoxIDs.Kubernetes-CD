@@ -1,52 +1,50 @@
 # Kubectl (Single-Node Bootstrap)
 
-This folder documents how to bootstrap the FoxIDs single-node stack with `kubectl`. Reuse the multi-node kustomization (`multi_nodes/kubectl_setup`) as a starting point and adjust it to reference the manifests in `single_nodes/app`.
+Use this folder to bootstrap the FoxIDs single-node stack with `kubectl`.
 
 ## Prerequisites
 - `kubectl` 1.27+ (or any version that supports `kubectl apply -k`).
-- Optional: the standalone `kustomize` binary if you prefer `kustomize build`.
+- Optional: stand-alone `kustomize` binary if you prefer `kustomize build`.
 - A kubeconfig with cluster-admin privileges. Place it in `.kube\kubeconfig.yml` or set `KUBECONFIG` before running commands.
 
-## Preparation
+## Configure Secrets and Credentials
 
-1. Copy `multi_nodes/kubectl_setup` to a working directory (for example `_local/single-node-kubectl`).
-2. Update secrets and credentials in the copied files:
-   - `foxids-secrets.yaml` - replace every `CHANGE_ME_...` value with strong passwords (FoxIDs, MongoDB, OpenSearch, SMTP/SMS as needed).
-   - `argocd/admin-secret-patch.yaml` - generate a bcrypt hash for the Argo CD admin password, update `admin.password`, and set `admin.passwordMtime` to the current UTC timestamp.
-   - `argocd/repo-secret.yaml` - configure Argo CD access to your Git repository.
-3. Point the Argo CD meta application at the single-node manifests by editing `argocd/meta-application.yaml`:
-   - `repoURL: https://github.com/ITfoxtec/FoxIDs.Kubernetes-CD.git`
-   - `path: single_nodes/app`
+1. Edit `foxids-secrets.yaml` and replace every `CHANGE_ME_...` value with strong passwords. Remove the SMTP / SMS secret blocks if you do not use them.
+2. Run a bcrypt hash generator (for example `htpasswd`) and update `argocd/admin-secret-patch.yaml`:
+   - Set `admin.password` to the bcrypt hash.
+   - Set `admin.passwordMtime` to the current UTC timestamp in RFC3339 format.
+3. Update `argocd/repo-secret.yaml` if Argo CD needs credentials to pull your Git repository (leave `username` / `password` empty for public HTTPS access).
+4. Adjust `argocd/meta-application.yaml` if you forked the repository or want to track a different branch.
 
 ## Apply the Manifests
 
-From the repository root (or from your working directory):
+From the repository root run:
 
 ```
-kubectl apply -k <path-to-your-single-node-kustomization>
+kubectl apply -k single_nodes/kubectl_setup
 ```
 
-Wait for Argo CD to become ready:
+Monitor progress:
 
 ```
 kubectl get pods -n argocd
 kubectl get pods -n foxids
 ```
 
-Then port-forward the Argo CD server and verify that every application under `single_nodes/app` is `Synced` and `Healthy`.
+When Argo CD is ready, port-forward the server and sign in with the admin password you configured:
 
 ```
 kubectl port-forward svc/argocd-server -n argocd 3443:443
 ```
 
-Log on at https://localhost:3443 with the admin password you configured.
+Log on at https://localhost:3443 and ensure every application sourced from `single_nodes/app` reports `Healthy/Synced`.
 
 ## Cleanup
 
-Delete the resources when finished:
+Remove the stack when finished testing:
 
 ```
-kubectl delete -k <path-to-your-single-node-kustomization>
+kubectl delete -k single_nodes/kubectl_setup
 ```
 
-> Need high availability later? Switch the Argo CD meta application back to `multi_nodes/app` to reconcile the multi-node manifests.
+> Need higher availability later? Switch the Argo CD meta application back to `multi_nodes/app` to reconcile the multi-node manifests instead.
