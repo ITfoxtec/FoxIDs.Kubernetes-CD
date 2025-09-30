@@ -4,8 +4,8 @@ Deploy FoxIDs in a scalable, highly available HA-cluster topology.
 
 - **FoxIDs site** (HA-cluster)
 - **FoxIDs Control site** (HA-cluster)
-- **MongoDB** (single instance)
-- **OpenSearch** (single instance)
+- **MongoDB** (replica set)
+- **OpenSearch** (replica set)
 
 Minimum recommended cluster size: 3 worker nodes (servers), each with 4 vCPUs, 16 GB RAM, and 100 GiB SSD.
 
