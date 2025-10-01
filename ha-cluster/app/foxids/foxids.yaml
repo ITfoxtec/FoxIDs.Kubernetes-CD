@@ -36,7 +36,7 @@ spec:
             - name: "Settings__FoxIDsEndpoint"
               value: "https://id.test-ha-cluster.foxids.com" 
             - name: "Settings__Address__CompanyName"
-              value: "My company name
+              value: "My company name"
             - name: "Settings__Address__AddressLine1"
               value: "My company address"
             - name: "Settings__Address__PostalCode"
