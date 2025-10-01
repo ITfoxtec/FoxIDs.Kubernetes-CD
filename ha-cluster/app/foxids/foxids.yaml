@@ -105,10 +105,17 @@ spec:
               path: /health
               port: 8800
               scheme: HTTP
-            initialDelaySeconds: 5
-            periodSeconds: 30
+            initialDelaySeconds: 30
+            periodSeconds: 20
             timeoutSeconds: 5
             failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8800
+              scheme: HTTP
+            periodSeconds: 5
+            timeoutSeconds: 2
           resources:
             requests:
               cpu: "250m"
@@ -199,10 +206,17 @@ spec:
               path: /api/health
               port: 8800
               scheme: HTTP
-            initialDelaySeconds: 5
-            periodSeconds: 30
+            initialDelaySeconds: 30
+            periodSeconds: 20
             timeoutSeconds: 5
             failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8800
+              scheme: HTTP
+            periodSeconds: 5
+            timeoutSeconds: 2
           resources:
             requests:
               cpu: "200m"
