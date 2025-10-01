@@ -20,7 +20,7 @@ spec:
       releaseName: foxids-opensearch
       valuesObject:
         clusterName: foxids-opensearch
-        nodeGroup: single
+        nodeGroup: master
         masterService: foxids-opensearch-master
         roles:
           - master
