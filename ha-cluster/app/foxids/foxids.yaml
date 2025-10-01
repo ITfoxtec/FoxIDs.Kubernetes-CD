@@ -18,7 +18,7 @@ spec:
         - name: foxids
           #image: foxids/foxids:latest
           #image: foxids/foxids:2.3.6
-          image: foxids/foxids:2.6.4-test
+          image: foxids/foxids:2.6.5-test
           imagePullPolicy: Always
           ports:
             - containerPort: 8800
@@ -36,7 +36,7 @@ spec:
             - name: "Settings__FoxIDsEndpoint"
               value: "https://id.test-ha-cluster.foxids.com" 
             - name: "Settings__Address__CompanyName"
-              value: "My company name"
+              value: "My company name
             - name: "Settings__Address__AddressLine1"
               value: "My company address"
             - name: "Settings__Address__PostalCode"
@@ -144,7 +144,7 @@ spec:
         - name: foxids-control
           #image: foxids/foxids-control:latest
           #image: foxids/foxids-control:2.3.6
-          image: foxids/foxids-control:2.6.4-test
+          image: foxids/foxids-control:2.6.5-test
           imagePullPolicy: Always
           ports:
             - containerPort: 8800

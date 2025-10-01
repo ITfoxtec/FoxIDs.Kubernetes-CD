@@ -56,6 +56,14 @@ spec:
             resources:
               requests:
                 storage: 16Gi
+        - metadata:
+            name: logs-volume
+          spec:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 4Gi
       template:
         metadata:
           labels:
