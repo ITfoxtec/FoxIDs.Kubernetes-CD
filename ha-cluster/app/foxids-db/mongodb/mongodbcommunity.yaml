@@ -13,7 +13,7 @@ metadata:
 spec:
   members: 3
   type: ReplicaSet
-  version: "7.0.12"
+  version: "8.2.1"   # https://hub.docker.com/_/mongo
   security:
     authentication:
       modes:
