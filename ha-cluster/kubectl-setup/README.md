@@ -8,6 +8,12 @@ Bootstrap the FoxIDs HA-cluster stack with plain `kubectl` + `kustomize`.
 - A kubeconfig with cluster-admin access. Place it in `.kube\kubeconfig.yml` (same convention as the Terraform walkthrough) or point `KUBECONFIG` to the file.
 - A tool that can generate bcrypt hashes (the example below uses `htpasswd`).
 
+# Kubectl on Windows
+Path to kubernetes config
+```
+$env:KUBECONFIG=".kube\kubeconfig.yml"
+```
+
 ## Configure secrets and credentials
 1. **FoxIDs data plane secrets** - Edit `foxids-secrets.yaml` and replace every `CHANGE_ME_...` value with strong passwords. Delete the SMTP/SMS sections if you do not use them.
 2. **Argo CD admin password** - Generate a bcrypt hash and timestamp, then update `argocd/admin-secret-patch.yaml`.
