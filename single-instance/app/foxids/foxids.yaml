@@ -176,6 +176,13 @@ spec:
               value: "My company city"
             - name: "Settings__Address__Country"
               value: "My company country"
+            # Options to hide settings in the FoxIDs client user interface
+            # - name: "Settings__ClientUi__HideBrandingSettings"
+            #   value: "true"
+            # - name: "Settings__ClientUi__HideSmsSettings"
+            #   value: "true"
+            # - name: "Settings__ClientUi__HideMailSettings"
+            #   value: "true"
             - name: "Settings__Options__Log"
               value: "OpenSearchAndStdoutErrors"
             - name: "Settings__Options__DataStorage"
