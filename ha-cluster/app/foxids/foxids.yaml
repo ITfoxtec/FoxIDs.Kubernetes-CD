@@ -16,9 +16,7 @@ spec:
     spec:
       containers:
         - name: foxids
-          #image: foxids/foxids:latest
-          #image: foxids/foxids:2.3.6
-          image: foxids/foxids:2.6.8-test
+          image: foxids/foxids:2.16.2
           imagePullPolicy: Always
           ports:
             - containerPort: 8800
@@ -142,9 +140,7 @@ spec:
     spec:
       containers:
         - name: foxids-control
-          #image: foxids/foxids-control:latest
-          #image: foxids/foxids-control:2.3.6
-          image: foxids/foxids-control:2.6.8-test
+          image: foxids/foxids-control:2.16.2
           imagePullPolicy: Always
           ports:
             - containerPort: 8800
