@@ -74,6 +74,8 @@ spec:
             #       key: sms-secret
             - name: "Settings__Options__Log"
               value: "OpenSearchAndStdoutErrors"
+            - name: "Logging__Console__FormatterName"
+              value: "json"
             - name: "Settings__Options__DataStorage"
               value: "MongoDb"
             - name: "Settings__Options__Cache"
@@ -180,6 +182,8 @@ spec:
             #   value: "true"
             - name: "Settings__Options__Log"
               value: "OpenSearchAndStdoutErrors"
+            - name: "Logging__Console__FormatterName"
+              value: "json"
             - name: "Settings__Options__DataStorage"
               value: "MongoDb"
             - name: "Settings__Options__Cache"
